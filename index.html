@@ -25,6 +25,7 @@
         </div>
 
         <div class="main-container">
+       
 
             <div class="hello-text">
                 <h3 id="dynamic-time"></h3>
@@ -33,35 +34,43 @@
 
             <div class="directory">
                 <div id="dirContainer4">
-                    <img src="assets/fl3 default.png">
-                    <img src="assets/fl3 active.png" class="flActive">
-                 </div>
-
-                 <div id="dirContainer3">
-                    <img src="assets/fl3 default.png">
-                    <img src="assets/fl3 active.png" class="flActive">
-                 </div>
-
-                 <div id="dirContainer2">
-                    <img src="assets/fl2 default.png">
-                    <img src="assets/fl2 active.png" class="flActive">
-                 </div>
-
-                 <div id="dirContainer1">
-                    <img src="assets/fl1 default.png">
-                    <img src="assets/fl1 active.png" class="flActive">
-                 </div>
+                    <img src="assets/fl3 default.png" class="inactive">
+                    <img src="assets/fl3 active.png" class="active">
+                    <div class="directory-title4">Website Design</div>
+                </div>
+            
+                <div id="dirContainer3">
+                    <img src="assets/fl3 default.png" class="inactive">
+                    <img src="assets/fl3 active.png" class="active">
+                    <div class="directory-title3">Creative Coding</div>
+                </div>
+            
+                <div id="dirContainer2">
+                    <img src="assets/fl2 default.png" class="inactive">
+                    <img src="assets/fl2 active.png" class="active">
+                    <div class="directory-title2">Graphic Design</div>
+                </div>
+            
+                <div id="dirContainer1">
+                    <img src="assets/fl1 default.png" class="inactive">
+                    <img src="assets/fl1 active.png" class="active">
+                    <div class="directory-title1">About Me</div>
+                </div>
             </div>
+            
+            
 
             <div class="intro-text">
-                <h1>I'm Carla Budar ☝️, <br>a design student 👩‍💻 based in <br> New York City 🗽, welcome in ‼️</h1>
+                <h1>I'm <span id="nameBtn">Carla Budar ☝️</span> ,<br>a design student 👩‍💻 based in <br> New York City 🗽, welcome in ‼️</h1>
                 <h2>Contact me at:</h2>
 
                 <div id="intro-contact">
-                    <h2>Instagram</h2>
-                    <h2>Email</h2>
-                    <h2>LinkedIn</h2>
+                    <h2 class="email">Email</h2>
+                    <h2 class="linkedin">Linked In</h2>
+                    <h2 class="instagram">Instagram</h2>
                 </div>
+                
+                
                 
             </div>
             
@@ -71,17 +80,18 @@
             <div class="contact-title">
                 <h1>Contact</h1>
             </div>
-
+        
             <div class="contact-info">
-                <h2>Instagram: @carbudar.zip</h2>
-                <h2>Email: budac616@newschool.edu</h2>
-                <h2>LinkedIn: Carla Budar</h2>
+                <h2 class="link"><a href="mailto:budac616@newschool.edu" class="email">Email: budac616@newschool.edu</a></h2>
+                <h2 class="link"><a href="https://www.linkedin.com/in/carlabudar/" class="linkedin" target="_blank">LinkedIn: Carla Budar</a></h2>
+                <h2 class="link"><a href="https://www.instagram.com/carbudar/" class="instagram" target="_blank">Instagram: @carbudar</a></h2>
             </div>
-
+        
             <div class="fineprint">
                 <p>&copy; 2025 Carla Budar. All rights reserved. Designed and developed with passion and creativity.</p>
             </div>
         </div>
+        
     </div>
     
     <script src="script.js"></script>

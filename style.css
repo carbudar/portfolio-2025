@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+#nameBtn{
+    transition: ease 0.2s;
+}
+
+#nameBtn:hover {
+    color: azure;
+    font-size: 1.1em; /* or any size you prefer */
+}
+
+
 .page-container{
     height: auto;
     width: 100vw;
@@ -55,30 +65,100 @@
     padding: 4vw;
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    z-index: 3;
 }
 
 .main-container h1{
     font-size: 300%;
     line-height: 4rem;
+   
 }
 
+.door-container{
+    height:92vh;
+    width: 100vw;
+    background-color: rgb(29, 150, 150);
+    position: relative;
+    padding: 4vw;
+}
+.back-button{
+    background-color: antiquewhite;
+    height: 4vh;
+    width: 6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+
+}
+
+.directory-title1,.directory-title2,.directory-title3,.directory-title4{
+    display: none;
+    position: absolute;
+    height: 20px;
+    width: auto;
+    z-index: 5;
+    font-size: 160%;
+    transform: translateY(2vh);
+}
+
+.carousel{
+    background-color: blueviolet;
+    height: 100%;
+    width: 100%;
+}
+.back-button:hover{
+    background-color: brown;
+    color: antiquewhite;
+}
 #dynamic-time{
     margin-bottom: 3vh;
 }
 
-.directory{
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+.directory {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-#dirContainer1, 
-#dirContainer2, 
-#dirContainer3, 
-#dirContainer4{
+/* Initial state for directory items */
+.directory > div {
+    transform: translateY(-100vh); /* Start off-screen above the viewport */
+    opacity: 0; /* Start with hidden items */
+    animation: fallIn 1s ease-out forwards; /* Apply the animation */
+}
+
+/* Keyframes for falling effect */
+@keyframes fallIn {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Add delays for cascading effect */
+.directory > div:nth-child(1) {
+    animation-delay: 0.8s;
+}
+
+.directory > div:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.directory > div:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.directory > div:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+#dirContainer1, #dirContainer2, #dirContainer3, #dirContainer4 {
     width: 100%;
     height: 10px;
     display: flex;
@@ -87,31 +167,39 @@
     margin-bottom: 6vh;
     margin-top: 6vh;
 }
+.page-title {
+    position: absolute;
+   
+}
 
-.flActive{
+.active {
     opacity: 0;
     position: absolute;
-    
+    transition: transform 0.5s ease
 }
-#dirContainer1 img.flActive:hover,
-#dirContainer2 img.flActive:hover,
-#dirContainer3 img.flActive:hover,
-#dirContainer4 img.flActive:hover{
+
+.visible {
     opacity: 1;
-    transition: all 0.2s ease;    
+    transform: scale(1.2);
 }
 
+.hide {
+    opacity: 0;
+}
 
-.directory img{
+.directory img {
     height: 25vh;
     width: auto;
 }
+
+
 .intro-text{
     text-align: end;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     flex-direction: column;
+    
 }
 
 .intro-text h1{
@@ -126,13 +214,18 @@
 #intro-contact{
     display: flex;
     gap: 3vw;
+    z-index: 10;
 }
+
+
 
 #intro-contact h2{
     font-size: 2rem;
+    z-index: 3;
 }
 #intro-contact h2:hover{
     color: white;
+
 }
 
 .footer{
@@ -166,4 +259,14 @@
     bottom: 0;
     right: 0;
     margin: 4vw;
+}
+
+
+.contact-info .link a {
+    color: rgb(48, 118, 111); 
+    text-decoration: none; 
+}
+
+.contact-info .link a:hover {
+    color: rgb(5, 70, 5);
 }
