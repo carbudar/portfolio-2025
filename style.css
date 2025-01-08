@@ -4,27 +4,38 @@
     box-sizing: border-box;
 }
 
+h1,h2,h3{
+    font-weight: 300;
+}
 #nameBtn{
     transition: ease 0.2s;
 }
 
 #nameBtn:hover {
-    color: azure;
-    font-size: 1.1em; /* or any size you prefer */
+    color: #126889;
 }
 
 
 .page-container{
     height: auto;
     width: 100vw;
-    background-color: antiquewhite;
     position: absolute;
+    
+    font-family: "quasimoda", sans-serif;
+    font-weight: 100;
+    font-style: normal;
 }
+
+
 .header{
     height: 8vh;
-    background-color: aqua;
+    background-color: #126889;
+    color: #EDED14;
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .header-left, .header-center, .header-right {
@@ -33,25 +44,23 @@
     box-sizing: border-box;
     padding-left: 4vw;
     padding-right: 4vw;
+   
 }
 
 .header-left{
-    background-color: aliceblue;
     justify-content: left;
 }
 
 .header-center{
-    background-color: pink;
     justify-content: center;
 
 }
 .logo-img{
-    height: 6vh;
+    height: 5vh;
     width: auto;
 }
 
 .header-right{
-    background-color: blue;
     justify-content: right;
 }
 
@@ -60,7 +69,7 @@
 .main-container{
     height:92vh;
     width: 100vw;
-    background-color: rgb(29, 150, 150);
+    background-color: #F9F7F2;
     position: relative;
     padding: 4vw;
     display: grid;
@@ -74,15 +83,86 @@
    
 }
 
-.door-container{
-    height:92vh;
+.content-container,
+.about-container{
+    height:auto;
+    min-height: 92vh;
     width: 100vw;
-    background-color: rgb(29, 150, 150);
+    background-color: #F9F7F2;
     position: relative;
     padding: 4vw;
 }
+
+/* about me */
+
+.aboutMe{
+    height: auto;
+    background-color: #323F2F;
+}
+.about-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    background-color: #323F2F;
+}
+
+.about-title {
+    font-size: 200%;
+    color: #FFD2FF;
+    height: auto;
+    width: auto;
+}
+.blurEffect{
+    height: 4vw;
+    position: sticky;
+    z-index: 10;
+    top: 4vh;
+    width: 100vw;
+
+    /* backdrop-filter: blur(1.6rem);  */
+
+    filter: blur(1.1rem);
+    background-color: #323F2F;
+    
+    
+    
+
+   
+
+}
+
+
+.about-title h1{
+    position: sticky;
+    top: 8vw; 
+    left: 4vw;
+}
+
+
+
+
+
+.about-content{
+    background-color: #323F2F;
+    color: #AAA7A2;
+    line-height: 200%;
+    font-size: 150%;
+}
+
+
+
+.about-content h2{
+    margin-bottom: 10vh;
+}
+#profilePic{
+    width: 60%;
+}
+/* // */
+
 .back-button{
+    position: absolute;
     background-color: antiquewhite;
+    top: 3vw;
+    left: 3vw;
     height: 4vh;
     width: 6vw;
     display: flex;
@@ -102,17 +182,13 @@
     transform: translateY(2vh);
 }
 
-.carousel{
-    background-color: blueviolet;
-    height: 100%;
-    width: 100%;
-}
 .back-button:hover{
     background-color: brown;
     color: antiquewhite;
 }
 #dynamic-time{
     margin-bottom: 3vh;
+    color: #323F2F;
 }
 
 .directory {
@@ -120,6 +196,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.directoryTitleStyle{
+    color: #FFD2FF;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px #126889, 0 0 1em #EDED14, 0 0 0.2em #126889;
+
 }
 
 /* Initial state for directory items */
@@ -180,7 +263,7 @@
 
 .visible {
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .hide {
@@ -199,9 +282,12 @@
     align-items: flex-end;
     justify-content: flex-end;
     flex-direction: column;
-    
+    color: #AAA7A2;
 }
 
+.intro-text h2{
+    color:#126889
+}
 .intro-text h1{
     margin-bottom: 5vh;
 }
@@ -217,56 +303,76 @@
     z-index: 10;
 }
 
-
+.introduction{
+    color:#AAA7A2;
+}
 
 #intro-contact h2{
     font-size: 2rem;
     z-index: 3;
 }
 #intro-contact h2:hover{
-    color: white;
+    color: #EDED14;
 
 }
 
+
 .footer{
-    height:40vh;
+    height:auto;
     width: 100vw;
-    background-color: rgb(26, 85, 85);
+    background-color: #126889;
     position: relative;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     box-sizing: border-box;
     position: relative;
-    padding: 4vw;
+    padding-top: 4vw;
+    padding-right: 4vw;
+    padding-left: 4vw;
+    padding-bottom:5vw;
     gap: 10px;
 
     
 }
 .contact-title h1{
     font-size: 400%;
+    color:#FFD2FF;
 }
-.contact-info h2{
+.contact-info h2 {
     margin-bottom: 2vh;
     font-size: 200%;
 }
-.contact-info h2:hover{
-    color: rgb(95, 156, 141);
+
+
+.contact-info a {
+    text-decoration: none;
+    color: #F9F7F2; 
 }
 
+.contact-info a:hover {
+    color: #EDED14;
+}
 
 .fineprint{
     position: absolute;
     bottom: 0;
     right: 0;
-    margin: 4vw;
+    margin-right: 4vw;
+    margin-bottom: 3vh;
+    color:#EDED14;
 }
 
 
 .contact-info .link a {
-    color: rgb(48, 118, 111); 
+    color:#F9F7F2;
     text-decoration: none; 
+
+}
+
+.contact-info{
+    margin-bottom: 2vh;
 }
 
 .contact-info .link a:hover {
-    color: rgb(5, 70, 5);
+    color: #EDED14; 
 }

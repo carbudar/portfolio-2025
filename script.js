@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.log("Back button not found");
     }
-
    
 
      // Select the elements
@@ -50,6 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Find the corresponding directory-title dynamically based on the id
         const directoryTitle = dir.querySelector('.directory-title' + dir.id.slice(-1));
 
+        directoryTitle.classList.add('directoryTitleStyle')
+
         // Mouseover: make active image visible, scale up, and add specific text over the image
         dir.addEventListener('mouseover', () => {
             activeImage.classList.add('visible');
@@ -64,26 +65,28 @@ document.addEventListener('DOMContentLoaded', () => {
             directoryTitle.style.display = 'none'; // Hide the title on mouseout
         });
 
-        // Click: redirect to 'doors.html'
-        dir.addEventListener('click', () => {
-            window.location.href = 'doors.html'; // Redirect to doors.html
-        });
+      
     });
 
     // Loop through each container and set z-index based on its position
     floors.forEach((container, index) => {
         container.style.zIndex = floors.length - index; // Reverse the order for z-index
     });
+const pages = ["content", "content", "content", "content"];  // Function reference for the first element
 
-    const pages = ["website", "cc", "product", "about-me"];
-
-    // Directory navigation
-    for (let dirNum = 1; dirNum <= pages.length; dirNum++) {
-        const container = document.querySelector(`#dirContainer${dirNum}`);
-        container.addEventListener('click', () => {
+// Directory navigation
+for (let dirNum = 1; dirNum <= pages.length; dirNum++) {
+    const container = document.querySelector(`#dirContainer${dirNum}`);
+    container.addEventListener('click', () => {
+        if (dirNum === 1) {
+            // If it's the first button (index 0), perform the scrollToAbout function
+            pages[dirNum - 1](); // Calls scrollToAbout function
+        } else {
+            // For other buttons, perform page redirection
             document.location.href = `${pages[dirNum - 1]}.html`;
-        });
-    }
+        }
+    });
+}
 
     // JavaScript to update the existing h3 element with current date and time
     const dynamicTimeElement = document.getElementById('dynamic-time');
@@ -100,4 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Optionally, update the time dynamically every second
     setInterval(updateTime, 1000); // Updates every second
+
+    function scrollToAbout() {
+        // Scroll smoothly to the div with the id 'targetDiv'
+        document.getElementById('aboutMe').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+
 });
