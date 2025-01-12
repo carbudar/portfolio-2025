@@ -8,7 +8,7 @@
             "link":"https://carbudar.github.io/PERSPECTIVES/",
             "haveLink": true,
             "documentation":{
-                "thumbnail":"Assets/PERSPECTIVES cover.png",
+                "thumbnail":"assets/Documentation/PERSPECTIVES cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -21,7 +21,7 @@
             "link":"https://carbudar.github.io/Assignment-3/index.html",
             "haveLink": true,
             "documentation":{
-                "thumbnail":"Assets/today cover.png",
+                "thumbnail":"assets/Documentation/today cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -34,7 +34,7 @@
             "link":"https://carbudar.github.io/Self-As-System/",
             "haveLink": true,
             "documentation":{
-                "thumbnail":"Assets/System Log cover.png",
+                "thumbnail":"assets/Documentation/System Log cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -47,7 +47,7 @@
             "link":"https://carbudar.github.io/Photo-Archive/",
             "haveLink": true,
             "documentation":{
-                "thumbnail":"Assets/Photo Archive cover.png",
+                "thumbnail":"assets/Documentation/Photo Archive cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -60,7 +60,7 @@
             "link":"https://carbudar.github.io/Big-City-Small-World/",
             "haveLink": true,
             "documentation":{
-                "thumbnail":"Assets/Big CIty Small World cover.png",
+                "thumbnail":"assets/Documentation/Big CIty Small World cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -73,7 +73,7 @@
             "link":"https://odd-one-out-game.deno.dev/",
             "haveLink": true,
             "documentation":{
-                "thumbnail":"Assets/Odd Fellow Says Hello cover.png",
+                "thumbnail":"assets/Documentation/Odd Fellow Says Hello cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -86,7 +86,7 @@
             "link":" https://carbudar.github.io/hue-hunter/",
             "haveLink": true,
             "documentation":{
-                "thumbnail":"Assets/hue hunter cover.png",
+                "thumbnail":"assets/Documentation/hue hunter cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -118,7 +118,7 @@
             "haveLink": true,
             "isPhysical":false,
             "documentation":{
-                "thumbnail":"Assets/Data Portrait cover.png",
+                "thumbnail":"assets/Documentation/Data Portrait cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -132,7 +132,7 @@
             "haveLink": true,
             "isPhysical":false,
             "documentation":{
-                "thumbnail":"Assets/In Bloom cover.png",
+                "thumbnail":"assets/Documentation/In Bloom cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -146,7 +146,7 @@
             "haveLink": true,
             "isPhysical":false,
             "documentation":{
-                "thumbnail":"Assets/Rock Paper Scissors cover.png",
+                "thumbnail":"assets/Documentation/Rock Paper Scissors cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -160,7 +160,7 @@
             "haveLink": true,
             "isPhysical":false,
             "documentation":{
-                "thumbnail":"Assets/Time Keeper cover.png",
+                "thumbnail":"assets/Documentation/Time Keeper cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -175,7 +175,7 @@
             "haveLink": true,
             "isPhysical":false,
             "documentation":{
-                "thumbnail":"Assets/Puppy Vision cover.png",
+                "thumbnail":"assets/Documentation/Puppy Vision cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -190,7 +190,7 @@
         "haveLink": true,
         "isPhysical":false,
         "documentation":{
-            "thumbnail":"Assets/Looking In Looking Out cover.png",
+            "thumbnail":"assets/Documentation/Looking In Looking Out cover.png",
             "img2":"",
             "img3":""
         }
@@ -205,12 +205,12 @@
     "haveLink": true,
     "isPhysical":true,
     "documentation":{
-        "thumbnail":"Assets/Sunrise cover.png",
-        "main":"Assets/Sunrise demo.mov",
-        "vid1":"Assets/sun vid 3.MOV",
-        "vid2":"Assets/sun vid 4.mov",
-        "img1":"Assets/Sunrise cover.png",
-        "img2":"Assets/sun 3d1.png"
+        "thumbnail":"assets/Documentation/Sunrise cover.png",
+        "main":"assets/Documentation/Sunrise demo.mov",
+        "vid1":"assets/Documentation/sun vid 3.MOV",
+        "vid2":"assets/Documentation/sun vid 4.mov",
+        "img1":"assets/Documentation/Sunrise cover.png",
+        "img2":"assets/Documentation/sun 3d1.png"
         
     }
 
@@ -224,7 +224,7 @@
     "haveLink": true,
     "isPhysical":true,
     "documentation":{
-        "thumbnail":"Assets/Time Machine cover.jpeg",
+        "thumbnail":"assets/Documentation/Time Machine cover.jpeg",
         "img2":"",
         "img3":""
     }
@@ -239,7 +239,7 @@
     "haveLink": true,
     "isPhysical":true,
     "documentation":{
-        "thumbnail":"Assets/Nod And Smile Cover.png",
+        "thumbnail":"assets/Documentation/Nod And Smile Cover.png",
         "img2":"",
         "img3":""
     }
@@ -255,13 +255,13 @@
             "link":"",
             "haveLink": false,
             "documentation":{
-                "thumbnail":"Assets/Light House cover.jpg",
-                "main":"Assets/table demo.mov",
-                "img1":"Assets/table1.jpg",
-                "img2":"Assets/table 3.jpg",
-                "img3":"Assets/table 6.jpeg",
-                "img4":"Assets/table 7.jpeg.png",
-                "img5":"Assets/table 4.jpg"
+                "thumbnail":"assets/Documentation/Light House cover.jpg",
+                "main":"assets/Documentation/table demo.mov",
+                "img1":"assets/Documentation/table1.jpg",
+                "img2":"assets/Documentation/table 3.jpg",
+                "img3":"assets/Documentation/table 6.jpeg",
+                "img4":"assets/Documentation/table 7.jpeg.png",
+                "img5":"assets/Documentation/table 4.jpg"
             }
 
         },
@@ -273,7 +273,7 @@
             "link":"",
             "haveLink": false,
             "documentation":{
-                "thumbnail":"Assets/EternaLight cover.jpg",
+                "thumbnail":"assets/Documentation/EternaLight cover.jpg",
                 "img2":"",
                 "img3":""
             }
@@ -287,7 +287,7 @@
             "link":"",
             "haveLink": false,
             "documentation":{
-                "thumbnail":"Assets/Rope Lamp cover.png",
+                "thumbnail":"assets/Documentation/Rope Lamp cover.png",
                 "img2":"",
                 "img3":""
             }
@@ -297,19 +297,19 @@
     },
     "directory":{
         "floor1":{
-            "default":"assets/fl1 default.png",
-            "active":"assets/fl1 active.png",
+            "default":"assets/fl3 color.png",
+            "active":"assets/fl3 mono.png",
             "isActive":false
         },
         "floor2":{
-            "default":"assets/fl2 default.png",
-            "active":"assets/fl2 active.png",
+            "default":"assets/fl2 color.png",
+            "active":"assets/fl2 mono.png",
             "isActive":false
 
         },
         "floor3":{
-            "default":"assets/fl3 default.png",
-            "active":"assets/fl3 active.png",
+            "default":"assets/fl1 color.png",
+            "active":"assets/fl1 mono.png",
             "isActive":false
         }
     }

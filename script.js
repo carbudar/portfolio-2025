@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    makeHeader();
+    makeFooter()
+    backBtn();
+    floorDirectory()
+    DateAndTime();
+    backToTop();
+    window.addEventListener("scroll", changeBackgroundColor);
+
+
     function makeHeader(){
         // Select the placeholder for the header
         const headerPlaceHolder = document.querySelector('.headerPlaceHolder');
@@ -91,14 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
         footer.appendChild(footerContainer);
     }
-    
-    makeFooter()
-    makeHeader();
-
-    function backButton (){
-        const backBtn = document.querySelector('.backBtn');
-    
-    
+    function backBtn (){
+        const backBtn = document.querySelector('.backBtn')
         if (backBtn) { 
             backBtn.addEventListener('click', () => {
                 console.log("Back button clicked");
@@ -108,105 +112,124 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Back button not found");
         }
     }
-   backButton();
-   
 
-     // Select the elements
-     const email = document.querySelector('.email');
-     const linkedin = document.querySelector('.linkedin');
-     const instagram = document.querySelector('.instagram');
- 
-     // Email Click Event
-     email.addEventListener('click', (e) => {
-         e.preventDefault();
-         window.location.href = 'mailto:budac616@newschool.edu';
-     });
- 
-     // LinkedIn Click Event
-     linkedin.addEventListener('click', (e) => {
-         e.preventDefault();
-         window.open("https://www.linkedin.com/in/carlabudar/", "_blank");
-     });
- 
-     // Instagram Click Event
-     instagram.addEventListener('click', (e) => {
-         e.preventDefault();
-         window.open("https://www.instagram.com/carbudar/", "_blank");
-     });
+    function contactBtn (){
+          // Select the elements
+          const email = document.querySelector('.email');
+          const linkedin = document.querySelector('.linkedin');
+          const instagram = document.querySelector('.instagram');
+      
+          // Email Click Event
+          email.addEventListener('click', (e) => {
+              e.preventDefault();
+              window.location.href = 'mailto:budac616@newschool.edu';
+          });
+      
+          // LinkedIn Click Event
+          linkedin.addEventListener('click', (e) => {
+              e.preventDefault();
+              window.open("https://www.linkedin.com/in/carlabudar/", "_blank");
+          });
+      
+          // Instagram Click Event
+          instagram.addEventListener('click', (e) => {
+              e.preventDefault();
+              window.open("https://www.instagram.com/carbudar/", "_blank");
+          });
+  
+      
+          const nameBtn = document.querySelector('#nameBtn');
+          nameBtn.addEventListener('click',()=>{
+              scrollToAbout()
+          })
+    }
 
-   
-    const nameBtn = document.querySelector('#nameBtn');
-    nameBtn.addEventListener('click',()=>{
-        aboutMe.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    })
+    contactBtn()
 
-    const floors = document.querySelectorAll('.directory > div[id^="dirContainer"]');
-    // Iterate over each container
-    floors.forEach((dir) => {
-        const activeImage = dir.querySelector('.active');
-        const inactiveImage = dir.querySelector('.inactive');  
-
-        // Find the corresponding directory-title dynamically based on the id
-        const directoryTitle = dir.querySelector('.directory-title' + dir.id.slice(-1));
-
-        directoryTitle.classList.add('directoryTitleStyle')
-
-        // Mouseover: make active image visible, scale up, and add specific text over the image
-        dir.addEventListener('mouseover', () => {
-            activeImage.classList.add('visible');
-            inactiveImage.classList.add('hide');
-            directoryTitle.style.display = 'block'; // Show the title on hover
-        });
-
-        // Mouseout: reset to inactive image, revert scale, and remove text
-        dir.addEventListener('mouseout', () => {
-            activeImage.classList.remove('visible');
-            inactiveImage.classList.remove('hide');
-            directoryTitle.style.display = 'none'; // Hide the title on mouseout
-        });
+    function floorDirectory(){ //directory button
 
       
-    });
 
-    // Loop through each container and set z-index based on its position
-    floors.forEach((container, index) => {
-        container.style.zIndex = floors.length - index; // Reverse the order for z-index
-    });
-const pages = [() => document.querySelector('#aboutMe').scrollIntoView({ behavior: 'smooth' }),"content", "test", "test"];  // Function reference for the first element
+        const floors = document.querySelectorAll('.directory > div[id^="dirContainer"]');
+        // Iterate over each container
+        floors.forEach((dir) => {
+            const activeImage = dir.querySelector('.active');
+            const inactiveImage = dir.querySelector('.inactive');  
 
-// Directory navigation
-for (let dirNum = 1; dirNum <= pages.length; dirNum++) {
-    const container = document.querySelector(`#dirContainer${dirNum}`);
-    container.addEventListener('click', () => {
-        const action = pages[dirNum - 1];
-        if (typeof action === "function") {
-            // If the action is a function, execute it (e.g., scrollToAbout)
-            action();
-        } else {
-            // Otherwise, assume it's a page redirection
-            document.location.href = `${action}.html`;
-        }
-    });
+            // Find the corresponding directory-title dynamically based on the id
+            const directoryTitle = dir.querySelector('.directory-title' + dir.id.slice(-1));
+
+            directoryTitle.classList.add('directoryTitleStyle')
+
+            // Mouseover: make active image visible, scale up, and add specific text over the image
+            dir.addEventListener('mouseover', () => {
+                activeImage.classList.add('visible');
+                inactiveImage.classList.add('hide');
+                directoryTitle.style.display = 'block'; // Show the title on hover
+            });
+
+            // Mouseout: reset to inactive image, revert scale, and remove text
+            dir.addEventListener('mouseout', () => {
+                activeImage.classList.remove('visible');
+                inactiveImage.classList.remove('hide');
+                directoryTitle.style.display = 'none'; // Hide the title on mouseout
+            });
+
+        
+        });
+
+        // Loop through each container and set z-index based on its position
+        floors.forEach((container, index) => {
+            container.style.zIndex = floors.length - index; // Reverse the order for z-index
+        });
+    const pages = [scrollToAbout,
+                    "content.html?section=website",
+                    "content.html?section=cc",
+                    "content.html?section=product"]  // Function reference for the first element
+
+    // Directory navigation
+    for (let dirNum = 1; dirNum <= pages.length; dirNum++) {
+        const container = document.querySelector(`#dirContainer${dirNum}`);
+        container.addEventListener('click', () => {
+            const action = pages[dirNum - 1];
+            if (typeof action === "function") {
+                // If the action is a function, execute it (e.g., scrollToAbout)
+                action();
+            } else if (typeof action === "string") {
+                // Redirect to the page with the query parameter
+                window.location.href = action; // Use the URL string directly
+            }
+        });
 
 
-}
+    }
 
-    // JavaScript to update the existing h3 element with current date and time
-    const dynamicTimeElement = document.getElementById('dynamic-time');
+    }
+    function DateAndTime(){
+        const dynamicTime = document.querySelector('#dynamic-time');
+
+        const dynamicTimeElement = document.createElement('h3');
+        dynamicTime.appendChild(dynamicTimeElement);
 
     function updateTime() {
         const currentDate = new Date();
-        const date = currentDate.toLocaleDateString('en-US');
-        const time = currentDate.toLocaleTimeString('en-US');
-        dynamicTimeElement.textContent = `New York, NY -  ${date}, ${time}`;
+        const options = {
+            timeZone: 'America/New_York', // Force New York timezone
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+        };
+
+        dynamicTimeElement.textContent = `New York, NY - ${new Intl.DateTimeFormat('en-US', options).format(currentDate)}`;
     }
 
-    // Call updateTime immediately to set the current time
     updateTime();
 
-    // Optionally, update the time dynamically every second
-    setInterval(updateTime, 1000); // Updates every second
-
+    setInterval(updateTime, 1000);
+    }
     function scrollToAbout() {
         // Scroll smoothly to the div with the id 'targetDiv'
         document.getElementById('aboutMe').scrollIntoView({
@@ -214,9 +237,7 @@ for (let dirNum = 1; dirNum <= pages.length; dirNum++) {
             block: 'start'
         });
     }
-
-
-    function trackScrollProgress() {
+    function changeBackgroundColor() {
         const pageContainer = document.querySelector('.page-container');
         const blurEffect = document.querySelector('.blurEffect')
         const header = document.querySelector('.header')
@@ -225,7 +246,7 @@ for (let dirNum = 1; dirNum <= pages.length; dirNum++) {
         const scrollTop = window.scrollY; // Vertical scroll position
         const docHeight = document.documentElement.scrollHeight; // Total height of the document
         const windowHeight = window.innerHeight; // Height of the viewport
-    
+
         // Calculate percentage of page scrolled and round it down
         const scrollPercentage = Math.floor((scrollTop / (docHeight - windowHeight)) * 100);
 
@@ -238,10 +259,10 @@ for (let dirNum = 1; dirNum <= pages.length; dirNum++) {
             logoImage.src = "assets/logo header yellow.png";
             
         } else{//background color change to teal
-             pageContainer.style.backgroundColor = "#126889"
-             header.style.backgroundColor = "#F9F7F2"
-             header.style.color = "#126889"
-             logoImage.src = "assets/logo header teal.png";
+                pageContainer.style.backgroundColor = "#126889"
+                header.style.backgroundColor = "#F9F7F2"
+                header.style.color = "#126889"
+                logoImage.src = "assets/logo header teal.png";
         }
 
         if (scrollPercentage >= 40) {
@@ -249,45 +270,13 @@ for (let dirNum = 1; dirNum <= pages.length; dirNum++) {
         }
 
     }
-    
-    // Attach the event listener
-    window.addEventListener("scroll", trackScrollProgress);
+    function backToTop (){
+        //back to top button
+        const backToTop = document.querySelector('.backToTop');
 
-    //back to top button
-    const backToTop = document.querySelector('.backToTop');
-
-    backToTop.addEventListener('click', () => {
-        const pageContainer = document.querySelector('.page-container'); 
-        pageContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    function doorImage(){
-        const doors = [
-            { 
-                detail: "assets/doors/door white detail.png", 
-                blank: "assets/doors/door white blank.png" 
-            },
-            { 
-                detail: "assets/doors/door green detail.png", 
-                blank: "assets/doors/door green blank.png" 
-            },
-            { 
-                detail: "assets/doors/door pink detail.png", 
-                blank: "assets/doors/door pink blank.png" 
-            },
-            { 
-                detail: "assets/doors/door teal detail.png", 
-                blank: "assets/doors/door teal blank.png" 
-            }
-        ];
-    
-    
-        const doorImage = document.querySelector('#doorImage')
-    
-        doorImage.src = doors[2].detail
+        backToTop.addEventListener('click', () => {
+            const pageContainer = document.querySelector('.page-container'); 
+            pageContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     }
-
-    doorImage();
-
-    
 }); //DOMContentLoaded
