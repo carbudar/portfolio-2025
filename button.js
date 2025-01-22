@@ -45,6 +45,7 @@ function createButton(size, buttonText, className, color){
 }
 
     createButton("h1","Back to Top", "backToTop","#EDED14")
+    
 
     createButton("h2","Email", "email","#EDED14")
     createButton("h2","LinkedIn", "linkedin","#EDED14")

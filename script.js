@@ -147,9 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
     contactBtn()
 
     function floorDirectory(){ //directory button
-
-      
-
         const floors = document.querySelectorAll('.directory > div[id^="dirContainer"]');
         // Iterate over each container
         floors.forEach((dir) => {
@@ -270,13 +267,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     }
-    function backToTop (){
-        //back to top button
+    function backToTop() {
+        // Select the back-to-top button
         const backToTop = document.querySelector('.backToTop');
-
+    
+        // Add an event listener to the button
         backToTop.addEventListener('click', () => {
-            const pageContainer = document.querySelector('.page-container'); 
-            pageContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            console.log("Back to Top clicked");
+            
+            // Scroll the page to the very top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 }); //DOMContentLoaded

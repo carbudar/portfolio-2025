@@ -29,6 +29,7 @@ const loadProjects = async () => {
             console.error(`Section "${section}" not found in the JSON file`);
             return;
         }
+        
 
         // Get the container to append the project divs to
         const doorContainer = document.getElementById('doorContainer');
@@ -70,27 +71,12 @@ const loadProjects = async () => {
             doorImage.classList.add('doorImage');
             doorImage.src = doors[index % doors.length].detail;
 
-            // Add hover effect to the door image
-            doorImage.addEventListener('mouseover', () => {
-                doorImage.src = doors[index % doors.length].blank;
-                doorContainer.style.backgroundColor = doors[index % doors.length].color;
-                thumbnailContainer.style.display = "block"; // Show the thumbnail on hover
-            });
-
-            doorImage.addEventListener('mouseout', () => {
-                doorImage.src = doors[index % doors.length].detail;
-                doorContainer.style.backgroundColor = '';
-                thumbnailContainer.style.display = "none"; // Hide the thumbnail on hover out
-            });
-
             // Create a project details div
             const projectDiv = document.createElement('div');
             projectDiv.classList.add('project');
             projectDiv.innerHTML = `
                 <h3>${project.name}</h3>
                 <p><strong>Year:</strong> ${project.year}</p>
-                <p>${project.info}</p>
-                ${project.haveLink ? `<a href="${project.link}" target="_blank">View Project</a>` : ''}
             `;
 
             // Append elements to the project container
@@ -100,10 +86,64 @@ const loadProjects = async () => {
 
             // Append the project container to the main door container
             doorContainer.appendChild(eachProject);
+         
+            const updateHoverState = (isHovering) => {
+                const door = doors[index % doors.length];
+                doorImage.src = isHovering ? door.blank : door.detail;
+                doorContainer.style.backgroundColor = isHovering ? door.color : '';
+                thumbnailContainer.style.display = isHovering ? "block" : "none";
+                projectDiv.style.marginTop = isHovering ? "60vh" : "150vh";
+                doorImage.style.paddingBottom = isHovering ? "9vh" : "0vh"; 
+            
+                const handleClick = () => {
+                    // Navigate to projectinfo.html
+                    window.location.href = `project-info.html?project=${encodeURIComponent(project.name)}`;
+                };
+            
+                if (isHovering) {
+                    // Add 'hovered' class to the current door
+                    eachProject.classList.add('hovered');
+                    
+                    // Add 'blurred' class to all siblings
+                    document.querySelectorAll('.eachDoor').forEach((door) => {
+                        if (door !== eachProject) {
+                            door.classList.add('blurred');
+                        }
+                    });
+            
+                    // Attach click event to navigate
+                    eachProject.addEventListener('click', handleClick);
+                } else {
+                    // Remove 'hovered' class and reset siblings
+                    eachProject.classList.remove('hovered');
+                    document.querySelectorAll('.eachDoor').forEach((door) => {
+                        door.classList.remove('blurred');
+                    });
+            
+                    // Remove click event listener
+                    eachProject.removeEventListener('click', handleClick);
+                }
+            };
+              
+                       
+        
+
+         
+          
+            
+            // Attach shared event listeners
+            [doorImage, thumbnailContainer].forEach(element => {
+                element.addEventListener('mouseover', () => updateHoverState(true));
+                element.addEventListener('mouseout', () => updateHoverState(false));
+            });
         });
+
+        
     } catch (error) {
         console.error('Error loading JSON file:', error);
     }
+
+
 };
 
 // Call the function to load projects
