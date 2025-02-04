@@ -36,6 +36,7 @@ h1,h2,h3{
     position: sticky;
     top: 0;
     z-index: 105;
+
 }
 .header{
     height: 8vh;
@@ -338,7 +339,6 @@ h1,h2,h3{
     padding-left: 1vh;
     padding-right: 1vh;
     z-index: 10;
-    color: #FFD2FF;
 }
 
 
@@ -437,16 +437,17 @@ h1,h2,h3{
 }
 
 .backBtn {
-    position: absolute;
-    z-index: 10;
+    position: fixed;
+    z-index: 100;
     margin-left: 4vw;
     margin-top: 2vh;
+
 
 }
 
 #doorContainer {
     text-align: center;
-    background-color: #F9F7F2;
+    background-color: #FFD2FF;
     height: 92vh;
     width: 100vw;
     display: flex;
@@ -458,8 +459,15 @@ h1,h2,h3{
     transition: ease 0.5s;
     padding-left: 40vw;
     padding-right: 40vw;
+}
 
 
+.scrollNotice{
+    position: absolute;
+    z-index: 100;
+   bottom: 40vh;
+   left:3vw;
+   font-style: italic;
 }
 
 
@@ -509,12 +517,8 @@ h1,h2,h3{
     min-width: 20vw;
     min-height: 80vh;
     z-index: 51;
-}
 
-/* .stickyDoor{
-    position: sticky;
-    left: 40vw;
-} */
+}
 
 .thumbnailContainer{
     position:absolute;
@@ -539,6 +543,7 @@ h1,h2,h3{
     width: 100%;
     align-items: center;
     /* margin-top: 2vh; */
+    color: #323F2F;
 }
 
 /* .spotlight{
@@ -578,26 +583,43 @@ h1,h2,h3{
     width: 100%;
     height: 40vh;
     background-color: #AAA7A2;
+    position: relative;
 }
 
 #content,
 #content-buttons{
     display: grid;
-    height: 30vh;
+    height: auto;
     width: 100%;
     grid-template-columns: repeat(3,1fr);
-    background-color: #EDED14;
-    gap: 2vh;
+    gap: 3vw;
     margin: 2vh;
-
+    position: relative;
 }
+
+
 .content-center,
 .content-left,
-.content-right{
-    padding: 4vw;
+.content-right,
+.progress{
+    padding: 1vh;
 }
 
-.content-left{
+.progress{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1;
+    width: 100%;
+    height: 20vh;
+    position: relative;
+}
+
+#content-buttons * {
+    place-self: center;
+}
+
+
+/* .content-left{
     background-color: #323F2F;
 
 }
@@ -609,8 +631,29 @@ h1,h2,h3{
 .content-right{
     background-color: #323F2F;
     
-}
+} */
+
 
 .titleProject{
     z-index: 100;
+}
+
+.projectTitle{
+    z-index: 100;
+    color: black;
+    font-size: large;
+}
+
+.materialListContent{
+    list-style: none;
+}
+.projectDetails{
+    line-height: 200%;
+}
+
+.projectButtonContainer{
+    background-color:#AAA7A2;
+    height: 20px;
+    font-weight: 100px;
+    position: relative;
 }

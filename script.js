@@ -26,10 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
         headerCenter.classList.add('header-center');
         headerRight.classList.add('header-right');
         logoImg.classList.add('logo-img');
+        header.style.fontSize = "100%"
+        header.style.fontWeight = "100%"
         
         // Set content for the left and right sections
         headerLeft.innerHTML = "Carla Budar, 2025 | Design and Technology";
-        headerRight.innerHTML = "email instagram home";
+        
+
+        
         
         // Set the logo image source
         logoImg.src = "assets/logo header yellow.png";
@@ -89,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     //fine print
     const fineprint = document.createElement('div')
-    fineprint.innerHTML = '<p>&copy; 2025 Carla Budar. All rights reserved. Designed and developed with passion and creativity.</p>'
+    fineprint.innerHTML = '<p>&copy; 2025 Carla Budar. All rights reserved. Designed and developed with 🤎 somewhere in New York City.</p>'
     fineprint.classList.add('fineprint')
     
         contactTitle.appendChild(contactTitleH1)
@@ -180,9 +184,9 @@ document.addEventListener('DOMContentLoaded', () => {
             container.style.zIndex = floors.length - index; // Reverse the order for z-index
         });
     const pages = [scrollToAbout,
-                    "content.html?section=website",
+                    "content.html?section=product",
                     "content.html?section=cc",
-                    "content.html?section=product"]  // Function reference for the first element
+                    "content.html?section=website"]  // Function reference for the first element
 
     // Directory navigation
     for (let dirNum = 1; dirNum <= pages.length; dirNum++) {
@@ -268,15 +272,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
     function backToTop() {
-        // Select the back-to-top button
+        // Select both back-to-top buttons
         const backToTop = document.querySelector('.backToTop');
     
-        // Add an event listener to the button
-        backToTop.addEventListener('click', () => {
-            console.log("Back to Top clicked");
-            
-            // Scroll the page to the very top smoothly
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        // Add the scroll-to-top event for .backToTop
+        if (backToTop) {
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0, // Scroll to the top of the page
+                    behavior: 'smooth' // Smooth scrolling
+                });
+            });
+        }
     }
+    
+
+    
+   
 }); //DOMContentLoaded
