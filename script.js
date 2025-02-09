@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const headerCenter = document.createElement('div');
         const headerRight = document.createElement('div');
         const logoImg = document.createElement('img');
-        
+    
+
         // Set classes for styling
         header.classList.add('header');
         headerLeft.classList.add('header-left');
@@ -32,15 +33,53 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set content for the left and right sections
         headerLeft.innerHTML = "Carla Budar, 2025 | Design and Technology";
         
+        const headerButtons = document.createElement('div')
+        headerButtons.classList.add('headerButton')
+        const headerHome = document.createElement('h3')
+        const headerEmail = document.createElement('h3')
+        const headerInstagram = document.createElement('h3')
+        const headerLinkedin = document.createElement('h3')
 
+        //header home button
+        headerHome.innerHTML="Home"
+        headerHome.addEventListener('click',()=>{
+            window.location.href = 'index.html'
+        })
+
+
+        headerEmail.innerHTML = "Email"
+        headerEmail.addEventListener('click',()=>{
+            window.location.href = "mailto:budac616@newschool.edu" 
+        })
+
+        headerInstagram.innerHTML = "Instagram"
+        headerInstagram.addEventListener('click',()=>{
+            window.location.href = "https://www.instagram.com/carbudar/" 
+        })
+
+        headerLinkedin.innerHTML = "Linkedin"
+        headerLinkedin.addEventListener('click',()=>{
+            window.location.href = "https://www.linkedin.com/in/carlabudar/" 
+        })
+
+        
+        headerButtons.appendChild(headerHome)
+        headerButtons.appendChild(headerEmail)
+        headerButtons.appendChild(headerInstagram)
+        headerButtons.appendChild(headerLinkedin)
+
+        headerRight.appendChild(headerButtons)
         
         
         // Set the logo image source
         logoImg.src = "assets/logo header yellow.png";
         logoImg.alt = "carbudar logo";
         
+       
+        
         // Append the logo to the center section
         headerCenter.appendChild(logoImg);
+   
         
         // Append the sections to the header container
         header.appendChild(headerLeft);
@@ -116,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Back button not found");
         }
     }
-
     function contactBtn (){
           // Select the elements
           const email = document.querySelector('.email');
@@ -147,9 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
               scrollToAbout()
           })
     }
-
     contactBtn()
-
     function floorDirectory(){ //directory button
         const floors = document.querySelectorAll('.directory > div[id^="dirContainer"]');
         // Iterate over each container
@@ -239,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     function changeBackgroundColor() {
-        const pageContainer = document.querySelector('.page-container');
+        const pageContainer = document.querySelector('.landing-page-container');
         const blurEffect = document.querySelector('.blurEffect')
         const header = document.querySelector('.header')
         const logoImage = document.querySelector(".logo-img");
@@ -287,6 +323,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
 
-    
-   
+enlargeDocumentation();
 }); //DOMContentLoaded

@@ -9,8 +9,8 @@
             "haveLink": true,
             "documentation":{
                 "thumbnail":"assets/Documentation/PERSPECTIVES cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"assets/Documentation/Process/PERSPECTIVES sketch 1.jpg",
+                "doc2":"assets/Documentation/Process/PERSPECTIVES sketch 2.jpg"
             }
         },
         "today":{
@@ -22,8 +22,8 @@
             "haveLink": true,
             "documentation":{
                 "thumbnail":"assets/Documentation/today cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"assets/Documentation/Process/today sketch.jpg",
+                "doc2":""
             }
         },
         "System Log":{
@@ -35,8 +35,8 @@
             "haveLink": true,
             "documentation":{
                 "thumbnail":"assets/Documentation/System Log cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"assets/Documentation/Process/Self as System sketch.jpg",
+                "doc2":""
             }
         },
         "Photo Archive":{
@@ -48,8 +48,8 @@
             "haveLink": true,
             "documentation":{
                 "thumbnail":"assets/Documentation/Photo Archive cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"",
+                "doc2":""
             }
         },
         "Big City Small World":{
@@ -61,8 +61,8 @@
             "haveLink": true,
             "documentation":{
                 "thumbnail":"assets/Documentation/Big CIty Small World cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"assets/Documentation/Process/City As Systems Sketch 1.jpg",
+                "doc2":"assets/Documentation/Process/City As Systems Sketch 2.jpg"
             }
         },
         "Odd Fellow Says Hello":{
@@ -74,8 +74,8 @@
             "haveLink": true,
             "documentation":{
                 "thumbnail":"assets/Documentation/Odd Fellow Says Hello cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"assets/Documentation/Process/Odd Fellow Says Hello sketch.jpg",
+                "doc2":""
             }
         },
         "Hue Hunter":{
@@ -87,8 +87,8 @@
             "haveLink": true,
             "documentation":{
                 "thumbnail":"assets/Documentation/hue hunter cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"assets/Documentation/Process/Hue Hunter sketch.jpg",
+                "doc2":""
             }
         },
         "Sircle App":{
@@ -100,8 +100,8 @@
             "haveLink": false,
             "documentation":{
                 "thumbnail":"https://portfolio.newschool.edu/cbdr/files/2023/05/Screenshot-2023-05-14-at-6.39.38-AM.png",
-                "img2":"",
-                "img3":""
+                "doc1":"",
+                "doc2":""
             }
         }
         
@@ -119,8 +119,8 @@
             "isPhysical":false,
             "documentation":{
                 "thumbnail":"assets/Documentation/Data Portrait cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"",
+                "doc2":""
             }
         },
         "In Bloom":{
@@ -133,8 +133,8 @@
             "isPhysical":false,
             "documentation":{
                 "thumbnail":"assets/Documentation/In Bloom cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"",
+                "doc2":""
             }
         },
         "Rock Paper Scissor":{
@@ -147,8 +147,8 @@
             "isPhysical":false,
             "documentation":{
                 "thumbnail":"assets/Documentation/Rock Paper Scissors cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"",
+                "doc2":""
             }
         },
         "Time Keeper":{
@@ -161,8 +161,8 @@
             "isPhysical":false,
             "documentation":{
                 "thumbnail":"assets/Documentation/Time Keeper cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"",
+                "doc2":""
             }
         
     },
@@ -176,8 +176,8 @@
             "isPhysical":false,
             "documentation":{
                 "thumbnail":"assets/Documentation/Puppy Vision cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"",
+                "doc2":""
             }
         
     },
@@ -191,8 +191,8 @@
         "isPhysical":false,
         "documentation":{
             "thumbnail":"assets/Documentation/Looking In Looking Out cover.png",
-            "img2":"",
-            "img3":""
+            "doc1":"assets/Documentation/Process/Looking In Looking Out sketch.jpg",
+            "doc2":""
         }
     
 },
@@ -206,11 +206,11 @@
     "isPhysical":true,
     "documentation":{
         "thumbnail":"assets/Documentation/Sunrise cover.png",
-        "main":"assets/Documentation/Sunrise demo.mov",
-        "vid1":"assets/Documentation/sun vid 3.MOV",
-        "vid2":"assets/Documentation/sun vid 4.mov",
-        "img1":"assets/Documentation/Sunrise cover.png",
-        "img2":"assets/Documentation/sun 3d1.png"
+        "doc1":"assets/Documentation/Sunrise demo.mov",
+        "doc2":"assets/Documentation/sun vid 3.MOV",
+        "doc3":"assets/Documentation/sun vid 4.mov",
+        "doc4":"assets/Documentation/Sunrise cover.png",
+        "doc5":"assets/Documentation/sun 3d1.png"
         
     }
 
@@ -225,8 +225,8 @@
     "isPhysical":true,
     "documentation":{
         "thumbnail":"assets/Documentation/Time Machine cover.jpeg",
-        "img2":"",
-        "img3":""
+        "doc1":"",
+        "doc2":""
     }
 
 },
@@ -240,8 +240,8 @@
     "isPhysical":true,
     "documentation":{
         "thumbnail":"assets/Documentation/Nod And Smile Cover.png",
-        "img2":"",
-        "img3":""
+        "doc1":"",
+        "doc2":""
     }
 
 }
@@ -256,12 +256,12 @@
             "haveLink": false,
             "documentation":{
                 "thumbnail":"assets/Documentation/Light House cover.jpg",
-                "main":"assets/Documentation/table demo.mov",
-                "img1":"assets/Documentation/table1.jpg",
-                "img2":"assets/Documentation/table 3.jpg",
-                "img3":"assets/Documentation/table 6.jpeg",
-                "img4":"assets/Documentation/table 7.jpeg.png",
-                "img5":"assets/Documentation/table 4.jpg"
+                "doc1":"assets/Documentation/table demo.mov",
+                "doc2":"assets/Documentation/table1.jpg",
+                "doc3":"assets/Documentation/table 3.jpg",
+                "doc4":"assets/Documentation/table 6.jpeg",
+                "doc5":"assets/Documentation/table 7.jpeg",
+                "doc6":"assets/Documentation/table 4.jpg"
             }
 
         },
@@ -274,8 +274,8 @@
             "haveLink": false,
             "documentation":{
                 "thumbnail":"assets/Documentation/EternaLight cover.jpg",
-                "img2":"",
-                "img3":""
+                "doc1":"",
+                "doc2":""
             }
 
         },
@@ -288,8 +288,8 @@
             "haveLink": false,
             "documentation":{
                 "thumbnail":"assets/Documentation/Rope Lamp cover.png",
-                "img2":"",
-                "img3":""
+                "doc1":"",
+                "doc2":""
             }
 
         }

@@ -50,9 +50,8 @@ function createButton(size, buttonText, className, highlightColor,color){
 }
 
 
-createButton("h1","Back to Top", "backToTop","#EDED14")
-    
 
+createButton("h1","Back to Top", "backToTop","#EDED14")
 createButton("h2","Email", "email","#EDED14")
 createButton("h2","LinkedIn", "linkedin","#EDED14")
 createButton("h2","Instagram", "instagram","#EDED14")
@@ -62,6 +61,7 @@ createButton("h3","Back", "backBtn","#EDED14")
 createButton("h2","Previous Poject", "content-previous","#EDED14","#EDED14")
 createButton("h2","Back To Top", "content-backToTop","#EDED14","#EDED14")
 createButton("h2","Next Project", "content-next","#EDED14","#EDED14")
+createButton("h3","Home", "home-button-header","#EDED14","#EDED14")
 
 
 const loadProjects = async () => {
@@ -152,7 +152,13 @@ const loadProjects = async () => {
 
             // Append the project container to the main door container
             doorContainer.appendChild(eachProject);
+            const clickIndicator = document.createElement('div')
+            clickIndicator.classList.add('clickIndicator')
+            clickIndicator.innerHTML = "Click to learn more"
+            doorContainer.appendChild(clickIndicator)
+
          
+
             const updateHoverState = (isHovering) => {
                 const door = doors[index % doors.length];
                 doorImage.src = isHovering ? door.blank : door.detail;
@@ -160,7 +166,24 @@ const loadProjects = async () => {
                 thumbnailContainer.style.display = isHovering ? "block" : "none";
                 projectDiv.style.marginTop = isHovering ? "60vh" : "150vh";
                 doorImage.style.paddingBottom = isHovering ? "9vh" : "0vh"; 
+
+                
+
+              
+
+                if (isHovering && door.color === "#353F30") { 
+                    topicList.style.color = "#FFD2FF"; // Pink
+                } else if (isHovering && door.color === "#306685") { 
+                    topicList.style.color = "#EDED14"; // yellow
+                } else {
+                    topicList.style.color = ""; // Reset to default
+                }
+
+                
             
+
+        
+
                 const handleClick = () => {
                     // Navigate to projectinfo.html
                     window.location.href = `project-info.html?project=${encodeURIComponent(project.name)}`;
@@ -263,7 +286,7 @@ const loadProjectInfo = async () => {
         // Create and append the project title in .content-left
         const projectTitle = document.createElement('h1');
         projectTitle.classList.add('projectTitle');
-        projectTitle.innerHTML = `<h1>${projectList.name}</h1> <h3>${projectList.year}</h3>`
+        projectTitle.innerHTML = `<h1>${projectList.name}</h1> <h3>${projectList.year}</h3>`;
         titleContainer.appendChild(projectTitle);
 
         // Create and append project details in .content-center
@@ -273,15 +296,13 @@ const loadProjectInfo = async () => {
             <h3><strong>Description:</strong></h3> <p>${projectList.info || 'No description available'}</p>
         `;
 
-        const progressTitleContainer = document.querySelector('.progressTitle')
-        const progressTitle = document.createElement('h1')
-        progressTitle.innerHTML = "Progress"
-        
-        progressTitleContainer.appendChild(progressTitle)
+        contentCenter.appendChild(projectDetails);
 
-        
-       
-
+        // Progress title
+        const progressTitleContainer = document.querySelector('.progressTitle');
+        const progressTitle = document.createElement('h1');
+        progressTitle.innerHTML = "Process";
+        progressTitleContainer.appendChild(progressTitle);
 
         // Create a container for materials
         const projectMaterials = document.createElement('div');
@@ -293,17 +314,12 @@ const loadProjectInfo = async () => {
         (materialList.innerHTML = projectList.material?.length 
             ? projectList.material.map(m => `<li>${m}</li>`).join('') 
             : '<li>Not specified</li>');
-        
-      
-    
+
         projectMaterials.appendChild(materialList);
         materialContainer.appendChild(projectMaterials);
-        contentCenter.appendChild(projectDetails);
 
-  
-
-          //link button
-          if (projectList.haveLink) {
+        // Link button
+        if (projectList.haveLink) {
             createButton("h2", "Visit Project", "visitSite", "#EDED14", "#EDED14");
             const siteButton = document.querySelector('.visitSite');
             siteButton.style.marginBottom = "1vh";
@@ -313,9 +329,43 @@ const loadProjectInfo = async () => {
             });
         }
 
-    
+        // ==================== ADDING DOCUMENTATION IMAGES ====================
+        if (projectList.documentation) {
+            const documentationContainer = document.querySelector('.progressPhoto');
         
+            Object.keys(projectList.documentation).forEach((key) => {
+                if (key !== "thumbnail") { // Skip the first image
+                    const filePath = projectList.documentation[key];
+        
+                    // Create either an image or video element based on file extension
+                    if (filePath.match(/\.(jpeg|jpg|png|gif|webp)$/i)) {
+                        // Create and append image
+                        const img = document.createElement("img");
+                        img.src = filePath;
+                        img.classList.add("documentationImage");
+                        documentationContainer.appendChild(img);
 
+                        img.addEventListener('click',()=>{
+                            window.open(filePath)
+                        })
+                    } else if (filePath.match(/\.(mp4|webm|ogg|mov)$/i)) {
+                        // Create and append video
+                        const video = document.createElement("video");
+                        video.src = filePath;
+                        video.classList.add("documentationVideo");
+                        video.controls = true; // Enables play, pause, volume controls
+                        documentationContainer.appendChild(video);
+                    }
+
+                  
+                }
+            });
+        }
+
+        
+        
+     
+        // ======================================================================
 
     } catch (error) {
         console.error('Error loading project information:', error);
