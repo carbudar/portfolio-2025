@@ -94,12 +94,12 @@ const loadProjects = async () => {
         const doorContainer = document.getElementById('doorContainer');
         doorContainer.innerHTML = ''; // Clear previous content
 
-        const scrollNotice = document.createElement('div')
-        scrollNotice.classList.add('scrollNotice')
+        // const scrollNotice = document.createElement('div')
+        // scrollNotice.classList.add('scrollNotice')
 
-        scrollNotice.innerHTML = "Scroll horizontally to view more projects"
+        // scrollNotice.innerHTML = "Scroll horizontally to view more projects"
 
-        doorContainer.appendChild(scrollNotice)
+        // doorContainer.appendChild(scrollNotice)
        
         // Iterate over each project in the selected section
         Object.keys(data[section]).forEach((key, index) => {
@@ -152,10 +152,12 @@ const loadProjects = async () => {
 
             // Append the project container to the main door container
             doorContainer.appendChild(eachProject);
+
+            const pageContainer = document.querySelector('.page-container')
             const clickIndicator = document.createElement('div')
             clickIndicator.classList.add('clickIndicator')
             clickIndicator.innerHTML = "Click to learn more"
-            doorContainer.appendChild(clickIndicator)
+            pageContainer.appendChild(clickIndicator)
 
          
 
@@ -166,6 +168,7 @@ const loadProjects = async () => {
                 thumbnailContainer.style.display = isHovering ? "block" : "none";
                 projectDiv.style.marginTop = isHovering ? "60vh" : "150vh";
                 doorImage.style.paddingBottom = isHovering ? "9vh" : "0vh"; 
+                clickIndicator.style.display = isHovering ? "block" : "none";
 
                 
 
@@ -274,6 +277,12 @@ const loadProjectInfo = async () => {
             return;
         }
 
+        document.querySelector('.projectThumbnail').setAttribute ('src',projectList.documentation.thumbnail)
+        const bannerBackground = document.querySelector('#projectPhotoBanner')
+        const randomIndex = Math.floor(Math.random() * (doors.length - 1)) + 1;
+        const randomColor = doors[randomIndex].color;
+        bannerBackground.style.backgroundColor = randomColor;
+
         // Select the content-left and content-center containers
         const titleContainer = document.querySelector('.content-left');
         const contentCenter = document.querySelector('.content-center');
@@ -299,10 +308,9 @@ const loadProjectInfo = async () => {
         contentCenter.appendChild(projectDetails);
 
         // Progress title
-        const progressTitleContainer = document.querySelector('.progressTitle');
-        const progressTitle = document.createElement('h1');
-        progressTitle.innerHTML = "Process";
-        progressTitleContainer.appendChild(progressTitle);
+        document.querySelector('.progressTitle').innerHTML = "Process";
+        document.querySelector('.reflectionTitle').innerHTML = "Reflection";
+        document.querySelector('.reflectionText').innerHTML = projectList.reflection;
 
         // Create a container for materials
         const projectMaterials = document.createElement('div');
@@ -332,22 +340,25 @@ const loadProjectInfo = async () => {
         // ==================== ADDING DOCUMENTATION IMAGES ====================
         if (projectList.documentation) {
             const documentationContainer = document.querySelector('.progressPhoto');
+            let hasSupportingDocuments = false;
+            documentationContainer.classList.add('documentationContainer')
         
             Object.keys(projectList.documentation).forEach((key) => {
                 if (key !== "thumbnail") { // Skip the first image
+                    hasSupportingDocuments = true; // Flag that at least one document exists
                     const filePath = projectList.documentation[key];
         
                     // Create either an image or video element based on file extension
-                    if (filePath.match(/\.(jpeg|jpg|png|gif|webp)$/i)) {
+                    if (filePath.match(/\.(jpeg|jpg|png|gif|webp|heic|HEIC)$/i)) {
                         // Create and append image
                         const img = document.createElement("img");
                         img.src = filePath;
                         img.classList.add("documentationImage");
                         documentationContainer.appendChild(img);
-
-                        img.addEventListener('click',()=>{
-                            window.open(filePath)
-                        })
+        
+                        img.addEventListener('click', () => {
+                            window.open(filePath);
+                        });
                     } else if (filePath.match(/\.(mp4|webm|ogg|mov)$/i)) {
                         // Create and append video
                         const video = document.createElement("video");
@@ -356,11 +367,15 @@ const loadProjectInfo = async () => {
                         video.controls = true; // Enables play, pause, volume controls
                         documentationContainer.appendChild(video);
                     }
-
-                  
                 }
             });
+        
+            // If only the thumbnail exists and no other documents, show the message
+            if (!hasSupportingDocuments) {
+                documentationContainer.innerHTML = "<p><i>No supporting documents for this project</i></p>";
+            }
         }
+        
 
         
         

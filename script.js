@@ -91,9 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
     function makeFooter(){
-        const footer = document.querySelector('.footer')
-    footer.classList.remove('footer');
-    
+        const footerPlaceholder = document.querySelector('.footerPlaceholder')
     //div container
         const footerContainer = document.createElement('div')
         footerContainer.classList.add('footer')
@@ -101,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //left grid
         const contactTitle = document.createElement('div')
         const contactTitleH1 = document.createElement('h1')
-        contactTitleH1.innerHTML= "Contact"
+        contactTitleH1.innerHTML= "Connect With Me!"
         contactTitle.classList.add('contact-title')
     
     //right grid
@@ -142,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     
-        footer.appendChild(footerContainer);
+        footerPlaceholder.appendChild(footerContainer);
     }
     function backBtn (){
         const backBtn = document.querySelector('.backBtn')

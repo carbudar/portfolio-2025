@@ -1,4 +1,5 @@
 let container = document.querySelector('.doorContainer');
+let stickyParent = document.querySelector('.stickyParent')
 
 function hybridScroll(){
     const stickySection = [...document.querySelectorAll('.sticky')]
@@ -14,8 +15,10 @@ function hybridScroll(){
         const offsetTop = section.parentElement.offsetTop;
         const scrollSection = section.querySelector('.scrollSection');
         const doorContainer = document.querySelector('#doorContainer');
+        
     
         const scrollWidth = doorContainer.scrollWidth - window.innerWidth;
+        stickyParent.style.height = "200vh"
     
         // Calculate scroll percentage
         let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;

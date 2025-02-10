@@ -4,6 +4,7 @@
             "name":"PERSPECTIVES",
             "year":"2024",
             "info":"This website is an exploration of perspectives, both physical and conceptual. Initially, the idea centered on the literal act of observing a space, but it evolved to include the broader notion of perspective as an opinion or interpretation. This project delves into the interplay between individual perceptions of a space and the atmosphere or essence that space conveys. The focus is on Madison Square Park and the Flatiron District, an area I am intimately familiar with as a resident. My personal connection to the neighborhood, along with my inherent biases, sparked an interest in contrasting my own experiences with the viewpoints of others, creating a nuanced understanding of this iconic location.",
+            "reflection":"test reflection",
             "material":["HTML","CSS"],
             "link":"https://carbudar.github.io/PERSPECTIVES/",
             "haveLink": true,
@@ -23,7 +24,7 @@
             "documentation":{
                 "thumbnail":"assets/Documentation/today cover.png",
                 "doc1":"assets/Documentation/Process/today sketch.jpg",
-                "doc2":""
+                "doc2":"assets/Documentation/Process/today brainstorm.png"
             }
         },
         "System Log":{
@@ -36,7 +37,8 @@
             "documentation":{
                 "thumbnail":"assets/Documentation/System Log cover.png",
                 "doc1":"assets/Documentation/Process/Self as System sketch.jpg",
-                "doc2":""
+                "doc2":"assets/Documentation/Process/system log skech 1.png",
+                "doc3":"assets/Documentation/Process/system log sketch 2.png"
             }
         },
         "Photo Archive":{
@@ -48,14 +50,14 @@
             "haveLink": true,
             "documentation":{
                 "thumbnail":"assets/Documentation/Photo Archive cover.png",
-                "doc1":"",
-                "doc2":""
+                "doc1":"assets/Documentation/Process/Photo Archive main page sketch.png",
+                "doc2":"assets/Documentation/Process/Photo Archive Expanded Sketch.png"
             }
         },
         "Big City Small World":{
             "name":"Big City Small World",
             "year":"2024",
-            "info":"'Big City Small World'is an ongoing archival documentation of a Soho, New York as a social neighborhood, aimed at capturing and analyzing its gradual evolution over time. It seeks to highlight the unique characteristics that distinguish one neighborhood from another and explore the underlying factors contributing to these differences. The project encourages individuals to consciously take note of their surroundings, becoming active observers of behavioral patterns, social norms, and interactions—whether between people or between people and their environment. By fostering this sense of observation, the initiative aims to inspire deeper connections with the spaces we inhabit.",
+            "info":"'Big City Small World'is an ongoing archival documentation of a Soho, New York as a social neighborhood, aimed at capturing and analyzing its gradual evolution. It seeks to highlight the psychogeography of an environment, and explore the underlying factors contributing to these differences. The project encourages individuals to consciously take note of their surroundings, becoming active observers of behavioral patterns, social norms, and interactions—whether between people or between people and their environment. By fostering this sense of observation, the initiative aims to inspire deeper connections with the spaces we inhabit.",
             "material":["HTML","CSS","Javascript"],
             "link":"https://carbudar.github.io/Big-City-Small-World/",
             "haveLink": true,
@@ -75,7 +77,8 @@
             "documentation":{
                 "thumbnail":"assets/Documentation/Odd Fellow Says Hello cover.png",
                 "doc1":"assets/Documentation/Process/Odd Fellow Says Hello sketch.jpg",
-                "doc2":""
+                "doc2":"assets/Documentation/Process/Odd fellow says hello sketch + color map.png",
+                "doc3":"assets/Documentation/Process/Odd Fellow Says Hello Flow Chart.png"
             }
         },
         "Hue Hunter":{
@@ -88,7 +91,7 @@
             "documentation":{
                 "thumbnail":"assets/Documentation/hue hunter cover.png",
                 "doc1":"assets/Documentation/Process/Hue Hunter sketch.jpg",
-                "doc2":""
+                "doc2":"assets/Documentation/Process/Hue Hunter color sketch.png"
             }
         },
         "Sircle App":{
@@ -100,8 +103,16 @@
             "haveLink": false,
             "documentation":{
                 "thumbnail":"https://portfolio.newschool.edu/cbdr/files/2023/05/Screenshot-2023-05-14-at-6.39.38-AM.png",
-                "doc1":"",
-                "doc2":""
+                "doc1":"assets/Documentation/Process/Sircle Color Palette.png",
+                "doc2":"assets/Documentation/Process/Sircle Buttons.png",
+                "doc3":"assets/Documentation/Process/Sircle Logo.png",
+                "doc4":"assets/Documentation/Process/Sircle App Define Stage.png",
+                "doc5":"assets/Documentation/Process/Sircle Ideate.png",
+                "doc6":"assets/Documentation/Process/Sircle Prioritation.png",
+                "doc7":"assets/Documentation/Process/Sircle Greybox 1.png",
+                "doc8":"assets/Documentation/Process/Sircle Greybox 2.png",
+                "doc9":"assets/Documentation/Process/Sircle wireframe.png",
+                "doc10":"assets/Documentation/Process/Sircle App Demo.mov"
             }
         }
         
@@ -119,8 +130,8 @@
             "isPhysical":false,
             "documentation":{
                 "thumbnail":"assets/Documentation/Data Portrait cover.png",
-                "doc1":"",
-                "doc2":""
+                "doc1":"assets/Documentation/Process/Data Portrait Data.png",
+                "doc2":"assets/Documentation/Process/Data Portrait Sketch.png"
             }
         },
         "In Bloom":{
@@ -147,8 +158,9 @@
             "isPhysical":false,
             "documentation":{
                 "thumbnail":"assets/Documentation/Rock Paper Scissors cover.png",
-                "doc1":"",
-                "doc2":""
+                "doc1":"assets/Documentation/Process/rps sketch 2.png",
+                "doc2":"assets/Documentation/Process/rps sketch v1.png",
+                "doc3":"assets/Documentation/Process/hand design.png"
             }
         },
         "Time Keeper":{
@@ -274,8 +286,11 @@
             "haveLink": false,
             "documentation":{
                 "thumbnail":"assets/Documentation/EternaLight cover.jpg",
-                "doc1":"",
-                "doc2":""
+                "doc1":"assets/Documentation/Process/EternaLight manual guide 1.21.38 AM.png",
+                "doc2":"assets/Documentation/Process/Untitled 40 2.32.49 AM 2.34.17 AM.png",
+                "doc3":"assets/Documentation/Process/eternaLight stand.png",
+                "doc4":"assets/Documentation/Process/Mycellium focus.jpeg",
+                "doc5":"assets/Documentation/Process/EternaLight full shot.png"
             }
 
         },
@@ -287,9 +302,7 @@
             "link":"",
             "haveLink": false,
             "documentation":{
-                "thumbnail":"assets/Documentation/Rope Lamp cover.png",
-                "doc1":"",
-                "doc2":""
+                "thumbnail":"assets/Documentation/Rope Lamp cover.png"
             }
 
         }

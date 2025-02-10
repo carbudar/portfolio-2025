@@ -1,14 +1,17 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
-      
+    box-sizing: border-box;      
+    font-family: "quasimoda", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    transition: background-color 0.5s ease;
+
 }
-/* 
+
 ::-webkit-scrollbar {
     display: none;
-} */
+}
 
 html, body {
     scroll-behavior: smooth;
@@ -28,13 +31,8 @@ h1,h2,h3{
 }
 
 .landing-page-container{
-    height: 200vh;
     width: 100vw;
     position: absolute;
-    font-family: "quasimoda", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-    transition: background-color 0.5s ease;
 }
 .page-container{
     height: auto;
@@ -116,8 +114,6 @@ h1,h2,h3{
 
 .aboutMe{
     height: auto;
-    background-color: #323F2F;
-    /* background-color: #323F2F; */
 }
 .about-container{
     padding: 4vw;
@@ -426,9 +422,7 @@ h1,h2,h3{
     padding-left: 4vw;
     padding-bottom:5vw;
     gap: 10px;
-    position: relative;
-    top:500vh;
-    
+    position: relative;    
 }
 .contact-title h1{
     font-size: 400%;
@@ -484,7 +478,6 @@ h1,h2,h3{
     text-align: center;
     height: 92vh;
     width: auto;
-    
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -492,19 +485,19 @@ h1,h2,h3{
     transition: ease 0.5s;
     padding-left: 40vw;
     padding-right: 40vw;
-    
 }
 
 .stickyParent{
-    height: 500vh;
+    scroll-behavior: smooth;
+    
 }
 
 .sticky{
     overflow: hidden;
     position:sticky;
     top:8vh;
-    height: 100vh;
-    border: #323F2F solid 1px;
+    height: 92vh;
+    /* border: #323F2F solid 1px; */
 }
 
 
@@ -549,8 +542,7 @@ h1,h2,h3{
     overflow: hidden;
     font-size: 250%;
 }
-
-
+/* 
 .doorCarousel{
     background-color: #AAA7A2;
     width: auto;
@@ -560,7 +552,7 @@ h1,h2,h3{
     justify-content: flex-start;
     align-items: flex-start;
     gap:10vw;
-}
+} */
 .doorImage{
     width: 20vw;
     height: auto;
@@ -650,9 +642,18 @@ h1,h2,h3{
 
 #projectPhotoBanner{
     width: 100%;
-    height: 40vh;
-    background-color: #AAA7A2;
+    height: 70vh;
     position: relative;
+    border-radius: 30px;
+    display: flex;
+
+}
+
+.projectThumbnail{
+    height: 35vh;
+    width: auto;
+   margin: auto;
+   
 }
 
 #content,
@@ -667,6 +668,7 @@ h1,h2,h3{
 }
 
 
+
 .content-center,
 .content-left,
 .content-right,
@@ -674,19 +676,42 @@ h1,h2,h3{
     padding: 1vh;
 }
 
+.documentationContainer{
+    color: #AAA7A2;
+    padding-left: 3vh;
+}
 .progress{
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1;
     width: 100%;
     height: auto;
-    position: relative;
 }
 
 .progressPhoto{
     display: flex;
     flex-wrap: wrap;
     gap: 1vw;
+}
+
+.reflection{
+    height: 30vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1;
+    margin-top: 3vh;
+    
+
+}
+.progressTitle,
+.reflectionTitle{
+    font-size: 250%;
+}
+
+.reflectionText{
+    height: 100%;
+    width: 100%;
 }
 
 
@@ -740,13 +765,39 @@ h1,h2,h3{
 }
 
 .clickIndicator{
-    position: absolute;
+    position: relative;
     z-index: 5000;
-    left: 10vw;
-    top: 20vh;
-    font-size: 250%;
+    top: 10vh;
+    width: 100vw;
+   text-align: center;
+    position:fixed;
+    font-size: 150%;
     transition: ease;
+    display: none;
+    color: #EDED14;
+    animation: blink 1s infinite; 
+    font-weight: bold;
 
+
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;  /* Fully visible */
+    }
+    50% {
+        opacity: 0;  /* Invisible at half time */
+    }
+    100% {
+        opacity: 1;  /* Back to fully visible */
+    }
+}
+.documentationImage {
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.documentationImage:hover {
+    transform: scale(1.1); /* Scales up the image to 110% of its size */
 }
 
 
