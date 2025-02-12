@@ -818,3 +818,15 @@ h1,h2,h3{
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
+
+  .nameGif{
+    width: 20vw;
+    padding-bottom: -6vh;
+    transition: ease 0.5s;
+
+  }
+
+  .nameGif:hover{
+    transform: scale(1.1);
+
+  }

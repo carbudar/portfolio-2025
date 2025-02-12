@@ -58,9 +58,9 @@ createButton("h2","Instagram", "instagram","#EDED14")
 
 createButton("h3","Back", "backBtn","#EDED14")
 
-createButton("h2","Previous Poject", "content-previous","#EDED14","#EDED14")
+// createButton("h2","Previous Poject", "content-previous","#EDED14","#EDED14")
 createButton("h2","Back To Top", "content-backToTop","#EDED14","#EDED14")
-createButton("h2","Next Project", "content-next","#EDED14","#EDED14")
+// createButton("h2","Next Project", "content-next","#EDED14","#EDED14")
 createButton("h3","Home", "home-button-header","#EDED14","#EDED14")
 
 

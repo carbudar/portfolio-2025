@@ -178,10 +178,24 @@ document.addEventListener('DOMContentLoaded', () => {
           });
   
       
-          const nameBtn = document.querySelector('#nameBtn');
-          nameBtn.addEventListener('click',()=>{
-              scrollToAbout()
-          })
+          const nameBtn = document.querySelector('#nameBtn'); // Select by class, not ID
+const nameGif = document.createElement('img');
+nameGif.classList.add('nameGif')
+
+nameGif.setAttribute("src", "assets/carlabudar font gif.gif"); // Correct src assignment
+
+// Clear the existing text content inside nameBtn
+nameBtn.textContent = "";
+
+// Append the new image
+nameBtn.appendChild(nameGif);
+
+// Add event listener for scrolling
+nameBtn.addEventListener('click', () => {
+    scrollToAbout();
+});
+
+     
     }
     contactBtn()
     function floorDirectory(){ //directory button
