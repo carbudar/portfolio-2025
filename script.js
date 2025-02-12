@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const headerButtons = document.createElement('div')
         headerButtons.classList.add('headerButton')
         const headerHome = document.createElement('h3')
+        headerHome.classList.add('headerHome')
         const headerEmail = document.createElement('h3')
         const headerInstagram = document.createElement('h3')
         const headerLinkedin = document.createElement('h3')
