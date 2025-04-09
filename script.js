@@ -1,13 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    
     makeHeader();
-    makeFooter()
     backBtn();
-    floorDirectory()
-    DateAndTime();
+    makeFooter()
     backToTop();
-    window.addEventListener("scroll", changeBackgroundColor);
 
+    contactBtn();
+    DateAndTime();
+    floorDirectory()
+    
+    const infoContainer = document.querySelector('#project-info-container')
+const testingH1 = document.createElement('h1')
+testingH1.innerHTML = "testing"
+infoContainer.appendChild(testingH1)
+console.log("testing testing")
+
+console.log("script.js functioning")
+
+
+
+
+}); //DOMContentLoaded
 
     function makeHeader(){
         // Select the placeholder for the header
@@ -31,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         header.style.fontWeight = "100%"
         
         // Set content for the left and right sections
-        headerLeft.innerHTML = "Carla Budar, 2025 | Design and Technology";
+        headerLeft.innerHTML = "Carla Budar | Design and Technology";
         
         const headerButtons = document.createElement('div')
         headerButtons.classList.add('headerButton')
@@ -48,19 +61,20 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
 
-        headerEmail.innerHTML = "Email"
+        headerEmail.innerHTML = "Works"
         headerEmail.addEventListener('click',()=>{
-            window.location.href = "mailto:budac616@newschool.edu" 
+            window.open('content2.html?section=work', '_blank');
         })
 
-        headerInstagram.innerHTML = "Instagram"
+        
+        headerInstagram.innerHTML = "Play"
         headerInstagram.addEventListener('click',()=>{
-            window.location.href = "https://www.instagram.com/carbudar/" 
+            window.location.href = "content2.html?section=play" 
         })
 
-        headerLinkedin.innerHTML = "Linkedin"
+        headerLinkedin.innerHTML = "About"
         headerLinkedin.addEventListener('click',()=>{
-            window.location.href = "https://www.linkedin.com/in/carlabudar/" 
+            scrollToAbout();
         })
 
         
@@ -106,11 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
     //right grid
         const contactInfo = document.createElement('div');
         const contactDetails = [
-            { text: "Email: budac616@newschool.edu", link: "mailto:budac616@newschool.edu" },
+            { text: "Email: budac616@newschool.edu", link: 'https://mail.google.com/mail/?view=cm&fs=1&to=budac616@newschool.edu'},
             { text: "LinkedIn: Carla Budar", link: "https://www.linkedin.com/in/carlabudar" },
             { text: "Instagram: @carbudar", link: "https://www.instagram.com/carbudar" }
         ];
-    
+
         // Create and append h2 elements with links dynamically
         contactDetails.forEach(detail => {
             const h2 = document.createElement('h2');
@@ -143,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         footerPlaceholder.appendChild(footerContainer);
     }
+    
     function backBtn (){
         const backBtn = document.querySelector('.backBtn')
         if (backBtn) { 
@@ -160,11 +175,12 @@ document.addEventListener('DOMContentLoaded', () => {
           const linkedin = document.querySelector('.linkedin');
           const instagram = document.querySelector('.instagram');
       
+          
           // Email Click Event
           email.addEventListener('click', (e) => {
-              e.preventDefault();
-              window.location.href = 'mailto:budac616@newschool.edu';
-          });
+            e.preventDefault();
+            window.open('https://mail.google.com/mail/?view=cm&fs=1&to=budac616@newschool.edu', '_blank');
+        });
       
           // LinkedIn Click Event
           linkedin.addEventListener('click', (e) => {
@@ -233,9 +249,8 @@ nameBtn.addEventListener('click', () => {
             container.style.zIndex = floors.length - index; // Reverse the order for z-index
         });
     const pages = [scrollToAbout,
-                    "content.html?section=product",
-                    "content.html?section=cc",
-                    "content.html?section=website"]  // Function reference for the first element
+                    "content2.html?section=play",
+                    "content2.html?section=work"]  // Function reference for the first element
 
     // Directory navigation
     for (let dirNum = 1; dirNum <= pages.length; dirNum++) {
@@ -287,39 +302,7 @@ nameBtn.addEventListener('click', () => {
             block: 'start'
         });
     }
-    function changeBackgroundColor() {
-        const pageContainer = document.querySelector('.landing-page-container');
-        const blurEffect = document.querySelector('.blurEffect')
-        const header = document.querySelector('.header')
-        const logoImage = document.querySelector(".logo-img");
-
-        const scrollTop = window.scrollY; // Vertical scroll position
-        const docHeight = document.documentElement.scrollHeight; // Total height of the document
-        const windowHeight = window.innerHeight; // Height of the viewport
-
-        // Calculate percentage of page scrolled and round it down
-        const scrollPercentage = Math.floor((scrollTop / (docHeight - windowHeight)) * 100);
-
-
-        if (scrollPercentage <= 30) { //background color white default
-            pageContainer.style.backgroundColor = "#F9F7F2"
-            header.style.backgroundColor = "#126889"
-            blurEffect.style.opacity = "0"
-            header.style.color = "#EDED14"
-            logoImage.src = "assets/logo header yellow.png";
-            
-        } else{//background color change to teal
-                pageContainer.style.backgroundColor = "#126889"
-                header.style.backgroundColor = "#F9F7F2"
-                header.style.color = "#126889"
-                logoImage.src = "assets/logo header teal.png";
-        }
-
-        if (scrollPercentage >= 40) {
-            blurEffect.style.opacity = "10" , 1000
-        }
-
-    }
+   
     function backToTop() {
         // Select both back-to-top buttons
         const backToTop = document.querySelector('.backToTop');
@@ -336,5 +319,4 @@ nameBtn.addEventListener('click', () => {
     }
     
 
-enlargeDocumentation();
-}); //DOMContentLoaded
+

@@ -33,12 +33,14 @@ h1,h2,h3{
 .landing-page-container{
     width: 100vw;
     position: absolute;
+    min-height: 100vh;
 }
 .page-container{
     height: auto;
     width: 100vw;
     position: absolute;
     transition: background-color 0.5s ease;
+    background-color: #126889;
 }
 
 .headerPlaceHolder{
@@ -219,12 +221,6 @@ h1,h2,h3{
 
 }
 
-/* Initial state for directory items */
-.directory > div {
-    transform: translateY(-100vh); /* Start off-screen above the viewport */
-    opacity: 0; /* Start with hidden items */
-    animation: fallIn 1s ease-out forwards; /* Apply the animation */
-}
 
 /* Keyframes for falling effect */
 @keyframes fallIn {
@@ -238,32 +234,47 @@ h1,h2,h3{
     }
 }
 
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+#dirContainer1, #dirContainer2, #dirContainer3 {
+    width: 100%;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 7vh;
+    margin-top: 7vh;
+    
+    /* First, run fallIn */
+    animation: fallIn 1s ease-out forwards, float 3s infinite ease-in-out;
+    animation-delay: 0s, 1s; /* Delay float so it starts after fallIn is done */
+}
+
 /* Add delays for cascading effect */
 .directory > div:nth-child(1) {
-    animation-delay: 0.8s;
+    animation-delay: 3s;
 }
 
 .directory > div:nth-child(2) {
-    animation-delay: 0.6s;
+    animation-delay: 2s;
 }
 
 .directory > div:nth-child(3) {
     animation-delay: 0.4s;
 }
 
-.directory > div:nth-child(4) {
-    animation-delay: 0.2s;
-}
 
-#dirContainer1, #dirContainer2, #dirContainer3, #dirContainer4 {
-    width: 100%;
-    height: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 6vh;
-    margin-top: 6vh;
-}
 .page-title {
     position: absolute;
    
@@ -342,13 +353,14 @@ h1,h2,h3{
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    width: auto;  
+    width: fit-content;  
     height: fit-content;
     position: relative;
     white-space: nowrap;
     margin-top: auto;
     margin-bottom: auto;
     z-index: 1000;
+    outline: solid;
 
 }
 
@@ -378,7 +390,7 @@ h1,h2,h3{
 .backToTop{
     width: fit-content;
     place-self: center;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
     z-index: 10;
 }
 
@@ -469,7 +481,7 @@ h1,h2,h3{
 
 .backBtn {
     position: fixed;
-    z-index: 100;
+    z-index: 1000;
     margin-left: 4vw;
     margin-top: 2vh;
 }
@@ -626,21 +638,7 @@ h1,h2,h3{
 }
 
 
-#projectPhotoBanner{
-    width: 100%;
-    height: 70vh;
-    position: relative;
-    border-radius: 30px;
-    display: flex;
 
-}
-
-.projectThumbnail{
-    height: 35vh;
-    width: auto;
-   margin: auto;
-   
-}
 
 #content,
 #content-buttons{
@@ -660,6 +658,7 @@ h1,h2,h3{
 .content-right,
 .progress{
     padding: 1vh;
+    list-style: none;
 }
 
 .documentationContainer{
@@ -908,11 +907,7 @@ h1,h2,h3{
     #project-info-container{
         margin-top: 8vh;
     }
-    .projectThumbnail{
-        width: 80%;
-        height: auto;
-    
-    }
+
     .thumbnailContainer{
         height: fit-content;
         position: relative;
@@ -935,3 +930,105 @@ h1,h2,h3{
         margin-top: 5vh !important; /* Override JS styling */
     }
   }
+
+  #projects-container{
+    min-height: 92vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    align-items: center;
+    padding: 2vh;
+
+  }
+
+  .projectElement{
+    margin-top: 3vh;
+    background-color:#FFD2FF;
+    min-height: 50vh;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+
+.projectPictureContainer{
+    height: 50vh;
+    min-width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectInfo{
+    height: 50vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+}
+.projectPicture{
+    height: 70%;
+    padding: 2vh;
+
+}
+.projectName,
+.projectMaterial,
+.projectDetailBtn{
+    height: 50vh;
+    width: 20vw;
+    padding: 2vh;
+    padding-top: 6vh;
+}
+
+
+
+.projectDetailBtn{
+    display: flex;
+    flex-direction: column;
+}
+
+.projectNameContent{
+    font-size: 1rem;
+}
+
+.projectMaterialContent{
+    list-style: none;
+    line-height: 200%;
+}
+
+
+.visitBtn,
+.moreInfoBtn{
+    margin-bottom: 2vh;
+}
+
+#projectPhotoBanner{
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    border-radius: 30px;
+    display: flex;
+    background-color:#323F2F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.test{
+    z-index: 10000;
+    background-color: #323F2F;
+}
+
+.banner2{
+    background-color: #EDED14;
+}
+
+.projectThumbnail{
+    height: 60%;
+    width: auto;
+    border-radius: 15px;
+}

@@ -1,394 +1,157 @@
-const doors = [
-    { detail: "assets/doors/door white detail.png", blank: "assets/doors/door white blank.png", color: "#F8F6F1" },
-    { detail: "assets/doors/door green detail.png", blank: "assets/doors/door green blank.png", color: "#353F30" },
-    { detail: "assets/doors/door pink detail.png", blank: "assets/doors/door pink blank.png", color: "#F7D3FB" },
-    { detail: "assets/doors/door teal detail.png", blank: "assets/doors/door teal blank.png", color: "#306685" },
-];
-function createButton(size, buttonText, className, highlightColor,color){
-    const buttonPlaceHolder = document.querySelector(`.${className}`);
-    if (!buttonPlaceHolder) {
-        console.error(`Placeholder for button with class "${className}" not found.`);
-        return;
-      }
-
-    //button is container for flex
+function createButton(size, buttonText, className, highlightColor, color, parentElement = null) {
+    console.log("button function is connected")
     const button = document.createElement('div');
     button.classList.add('button');
-    
-    //button expand is the moving animation element
+
     const buttonExpand = document.createElement('div');
-    buttonExpand.classList.add('button-expand')
+    buttonExpand.classList.add('button-expand');
 
-    //button content is text title
-    const buttonContent = document.createElement('div')
+    const buttonContent = document.createElement('div');
     const buttonTitle = document.createElement(size);
-    buttonTitle.innerHTML = buttonText
+    buttonTitle.innerHTML = buttonText;
 
-    buttonContent.appendChild(buttonTitle)
-    buttonContent.classList.add('buttonContent')
+    buttonContent.appendChild(buttonTitle);
+    buttonContent.classList.add('buttonContent');
 
-    button.appendChild(buttonExpand)
-    button.appendChild(buttonContent)
-    buttonPlaceHolder.appendChild(button);
+    button.appendChild(buttonExpand);
+    button.appendChild(buttonContent);
 
-    buttonContent.style.color = color
+    buttonContent.style.color = color;
 
-    buttonContent.addEventListener('mouseover',()=>{
+    buttonContent.addEventListener('mouseover', () => {
         const buttonContentRect = buttonContent.getBoundingClientRect();
-        buttonExpand.style.width = `${buttonContentRect.width}px`
-        buttonExpand.style.height = `${buttonContentRect.height}px`
-        buttonExpand.style.backgroundColor = highlightColor
-        buttonContent.style.color = "#126889"
-        console.log("mouse over button")
-    })
+        buttonExpand.style.width = `${buttonContentRect.width}px`;
+        buttonExpand.style.height = `${buttonContentRect.height}px`;
+        buttonExpand.style.backgroundColor = highlightColor;
+        buttonContent.style.color = "#126889";
+    });
 
-    buttonContent.addEventListener('mouseout',()=>{
-        buttonExpand.style.width = "0"
-        console.log("mouse outside button")
-        buttonContent.style.color = color
-    })
+    buttonContent.addEventListener('mouseout', () => {
+        buttonExpand.style.width = "0";
+        buttonContent.style.color = color;
+    });
+
+    if (parentElement) {
+        parentElement.appendChild(button);
+    } else {
+        const buttonPlaceHolder = document.querySelector(`.${className}`);
+        if (buttonPlaceHolder) {
+            buttonPlaceHolder.appendChild(button);
+        } else {
+            console.error(`Placeholder for button with class "${className}" not found.`);
+        }
+    }
 }
 
+createButton("h1", "Back to Top", "backToTop", "#EDED14", "#000");
+createButton("h2", "Email", "email", "#EDED14", "#000");
+createButton("h2", "LinkedIn", "linkedin", "#EDED14", "#000");
+createButton("h2", "Instagram", "instagram", "#EDED14", "#000");
+createButton("h3", "Back", "backBtn", "#EDED14", "#000");
 
-
-createButton("h1","Back to Top", "backToTop","#EDED14")
-createButton("h2","Email", "email","#EDED14")
-createButton("h2","LinkedIn", "linkedin","#EDED14")
-createButton("h2","Instagram", "instagram","#EDED14")
-
-createButton("h3","Back", "backBtn","#EDED14")
-
-// createButton("h2","Previous Poject", "content-previous","#EDED14","#EDED14")
-createButton("h2","Back To Top", "content-backToTop","#EDED14","#EDED14")
-// createButton("h2","Next Project", "content-next","#EDED14","#EDED14")
-createButton("h3","Home", "home-button-header","#EDED14","#EDED14")
-
-
-const loadProjects = async () => {
+// Fetch project data and dynamically create elements
+document.addEventListener('DOMContentLoaded', async function () {
     try {
-        // Get the section from the URL query parameter
         const urlParams = new URLSearchParams(window.location.search);
-        const section = urlParams.get('section'); 
+        const section = urlParams.get('section');
 
         if (!section) {
             console.error('No section specified in the URL');
             return;
         }
 
-        // Fetch data from the projects.json file
         const response = await fetch('projects.json');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
+        if (!response.ok) throw new Error('Failed to fetch projects.json');
         const data = await response.json();
 
-        // Check if the section exists in the JSON data
         if (!data[section]) {
             console.error(`Section "${section}" not found in the JSON file`);
             return;
         }
-        
 
-        // Get the container to append the project divs to
-        const doorContainer = document.getElementById('doorContainer');
-        doorContainer.innerHTML = ''; // Clear previous content
+        const projects = data[section];
+        const container = document.getElementById('projects-container');
+        container.innerHTML = '';
 
-        // const scrollNotice = document.createElement('div')
-        // scrollNotice.classList.add('scrollNotice')
+        Object.keys(projects).forEach(projectKey => {
+            console.log("testing")
 
-        // scrollNotice.innerHTML = "Scroll horizontally to view more projects"
+            const project = projects[projectKey];
 
-        // doorContainer.appendChild(scrollNotice)
-       
-        // Iterate over each project in the selected section
-        Object.keys(data[section]).forEach((key, index) => {
-            const project = data[section][key];
+            const projectElement = document.createElement('div');
+            projectElement.classList.add('projectElement');
 
-            // Create a container for each project
-            const eachProject = document.createElement('div');
-            eachProject.classList.add('eachDoor');
+            const projectPictureContainer = document.createElement('div');
+            projectPictureContainer.classList.add('projectPictureContainer');
+            const projectPicture = document.createElement('img');
+            projectPicture.src = project.documentation.thumbnail;
+            projectPicture.classList.add('projectPicture');
 
-            // Create the thumbnail container
-            const thumbnailContainer = document.createElement('div');
-            thumbnailContainer.classList.add('thumbnailContainer');
+            const projectInfo = document.createElement('div');
+            projectInfo.classList.add('projectInfo');
 
-            // Add the thumbnail image
-            const thumbnailPic = document.createElement('img');
-            thumbnailPic.src = project.documentation.thumbnail;
-            thumbnailPic.classList.add('thumbnailPic');
+            const projectName = document.createElement('div');
+            projectName.classList.add('projectName');
 
-            // Create an unordered list to display materials
-            const topicList = document.createElement('ul');
-            topicList.classList.add('materialList');
+            const projectMaterial = document.createElement('div');
+            projectMaterial.classList.add('projectMaterial');
 
-            // Populate the list with materials from the project
-            project.material.forEach((material) => {
-                const listItem = document.createElement('li');
-                listItem.textContent = material;
-                topicList.appendChild(listItem);
+            const projectDetailBtn = document.createElement('div');
+            projectDetailBtn.classList.add('projectDetailBtn');
+
+            const moreInfoBtn = document.createElement('div');
+            moreInfoBtn.classList.add('moreInfoBtn');
+            projectDetailBtn.appendChild(moreInfoBtn);
+
+            createButton("h3", "More Info", "moreInfoBtn", "#EDED14", "#000", moreInfoBtn);
+
+            moreInfoBtn.addEventListener('click', () => {
+                window.location.href = `project-info.html?project=${projectKey}`;
             });
 
-            thumbnailContainer.appendChild(thumbnailPic);
-            thumbnailContainer.appendChild(topicList);
+            if (project.link) {
+                const visitBtn = document.createElement('div');
+                visitBtn.classList.add('visitBtn');
+                projectDetailBtn.appendChild(visitBtn);
+                createButton("h3", "Visit Site", "visitBtn", "#EDED14", "#000", visitBtn);
 
-            // Create the door image
-            const doorImage = document.createElement('img');
-            doorImage.classList.add('doorImage');
-            doorImage.src = doors[index % doors.length].detail;
-
-            // Create a project details div
-            const projectDiv = document.createElement('div');
-            projectDiv.classList.add('project');
-            projectDiv.innerHTML = `
-                <h3>${project.name}</h3>
-                <p><strong>Year:</strong> ${project.year}</p>
-            `;
-            
-            // Append elements to the project container
-            eachProject.appendChild(doorImage);
-            eachProject.appendChild(thumbnailContainer);
-            eachProject.appendChild(projectDiv);
-
-            // Append the project container to the main door container
-            doorContainer.appendChild(eachProject);
-
-            const pageContainer = document.querySelector('.page-container')
-            const clickIndicator = document.createElement('div')
-            clickIndicator.classList.add('clickIndicator')
-            clickIndicator.innerHTML = "Click to learn more"
-            pageContainer.appendChild(clickIndicator)
-
-         
-
-            const updateHoverState = (isHovering) => {
-                const door = doors[index % doors.length];
-                doorImage.src = isHovering ? door.blank : door.detail;
-                doorContainer.style.backgroundColor = isHovering ? door.color : '';
-                thumbnailContainer.style.display = isHovering ? "block" : "none";
-                projectDiv.style.marginTop = isHovering ? "60vh" : "150vh";
-                doorImage.style.paddingBottom = isHovering ? "9vh" : "0vh"; 
-                clickIndicator.style.display = isHovering ? "block" : "none";
-
-                
-
-              
-
-                if (isHovering && door.color === "#353F30") { 
-                    topicList.style.color = "#FFD2FF"; // Pink
-                } else if (isHovering && door.color === "#306685") { 
-                    topicList.style.color = "#EDED14"; // yellow
-                } else {
-                    topicList.style.color = ""; // Reset to default
-                }
-
-                
-            
-
-        
-
-                const handleClick = () => {
-                    // Navigate to projectinfo.html
-                    window.location.href = `project-info.html?project=${encodeURIComponent(project.name)}`;
-                };
-            
-                if (isHovering) {
-                    // Add 'hovered' class to the current door
-                    eachProject.classList.add('hovered');
-                    
-                    // Add 'blurred' class to all siblings
-                    document.querySelectorAll('.eachDoor').forEach((door) => {
-                        if (door !== eachProject) {
-                            door.classList.add('blurred');
-                        }
-                    });
-            
-                    // Attach click event to navigate
-                    eachProject.addEventListener('click', handleClick);
-                } else {
-                    // Remove 'hovered' class and reset siblings
-                    eachProject.classList.remove('hovered');
-                    document.querySelectorAll('.eachDoor').forEach((door) => {
-                        door.classList.remove('blurred');
-                    });
-            
-                    // Remove click event listener
-                    eachProject.removeEventListener('click', handleClick);
-                }
-            };
-              
-         
-            // Attach shared event listeners
-            [doorImage, thumbnailContainer, projectDiv].forEach(element => {
-                element.addEventListener('mouseover', () => updateHoverState(true));
-                element.addEventListener('mouseout', () => updateHoverState(false));
-            });
-
-            // const projectTitle = document.createElement('h1')
-            // projectTitle.classList.add('projectTitle')
-            // const titleContainer = document.querySelector('.content-left')
-            // projectTitle.innerHTML = "test"
-            // titleContainer.appendChild(projectTitle)
-          
-        });
-
-        
-        
-    } catch (error) {
-        console.error('Error loading JSON file:', error);
-    }
-
-
-
-
-};
-
-const loadProjectInfo = async () => {
-    try {
-        // Get the project name from the URL query parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const projectName = urlParams.get('project'); // e.g., "Project Name"
-
-        if (!projectName) {
-            console.error('No project specified in the URL');
-            return;
-        }
-
-        // Fetch data from the projects.json file
-        const response = await fetch('projects.json');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-
-        // Find the project in the JSON data
-        let projectList = null;
-        Object.values(data).forEach(section => {
-            Object.values(section).forEach(project => {
-                if (project.name === projectName) {
-                    projectList = project;
-                }
-            });
-        });
-
-        if (!projectList) {
-            console.error(`Project "${projectName}" not found in the JSON file`);
-            return;
-        }
-
-        document.querySelector('.projectThumbnail').setAttribute ('src',projectList.documentation.thumbnail)
-        const bannerBackground = document.querySelector('#projectPhotoBanner')
-        const randomIndex = Math.floor(Math.random() * (doors.length - 1)) + 1;
-        const randomColor = doors[randomIndex].color;
-        bannerBackground.style.backgroundColor = randomColor;
-
-        // Select the content-left and content-center containers
-        const titleContainer = document.querySelector('.content-left');
-        const contentCenter = document.querySelector('.content-center');
-        const materialContainer = document.querySelector('.content-right');
-        if (!titleContainer || !contentCenter) {
-            console.error('Required containers not found');
-            return;
-        }
-
-        // Create and append the project title in .content-left
-        const projectTitle = document.createElement('h1');
-        projectTitle.classList.add('projectTitle');
-        projectTitle.innerHTML = `<h1>${projectList.name}</h1> <h3>${projectList.year}</h3>`;
-        titleContainer.appendChild(projectTitle);
-
-        // Create and append project details in .content-center
-        const projectDetails = document.createElement('div');
-        projectDetails.classList.add('projectDetails');
-        projectDetails.innerHTML = `
-            <h3><strong>Description:</strong></h3> <p>${projectList.info || 'No description available'}</p>
-        `;
-
-        contentCenter.appendChild(projectDetails);
-
-        // Progress title
-        document.querySelector('.progressTitle').innerHTML = "Process";
-        document.querySelector('.reflectionTitle').innerHTML = "Reflection";
-        document.querySelector('.reflectionText').innerHTML = projectList.reflection;
-
-        // Create a container for materials
-        const projectMaterials = document.createElement('div');
-        projectMaterials.classList.add('projectMaterials');
-        projectMaterials.innerHTML = `<h3><b>Materials:</b></h3>`;
-        
-        const materialList = document.createElement('ul');
-        materialList.classList.add('materialListContent');
-        (materialList.innerHTML = projectList.material?.length 
-            ? projectList.material.map(m => `<li>${m}</li>`).join('') 
-            : '<li>Not specified</li>');
-
-        projectMaterials.appendChild(materialList);
-        materialContainer.appendChild(projectMaterials);
-
-        // Link button
-        if (projectList.haveLink) {
-            createButton("h2", "Visit Project", "visitSite", "#EDED14", "#EDED14");
-            const siteButton = document.querySelector('.visitSite');
-            siteButton.style.marginBottom = "1vh";
-            
-            siteButton.addEventListener('click', () => {
-                window.open(projectList.link, '_blank'); // Opens in a new tab
-            });
-        }
-
-        // ==================== ADDING DOCUMENTATION IMAGES ====================
-        if (projectList.documentation) {
-            const documentationContainer = document.querySelector('.progressPhoto');
-            let hasSupportingDocuments = false;
-            documentationContainer.classList.add('documentationContainer')
-        
-            Object.keys(projectList.documentation).forEach((key) => {
-                if (key !== "thumbnail") { // Skip the first image
-                    hasSupportingDocuments = true; // Flag that at least one document exists
-                    const filePath = projectList.documentation[key];
-        
-                    // Create either an image or video element based on file extension
-                    if (filePath.match(/\.(jpeg|jpg|png|gif|webp|heic|HEIC)$/i)) {
-                        // Create and append image
-                        const img = document.createElement("img");
-                        img.src = filePath;
-                        img.classList.add("documentationImage");
-                        documentationContainer.appendChild(img);
-        
-                        img.addEventListener('click', () => {
-                            window.open(filePath);
-                        });
-                    } else if (filePath.match(/\.(mp4|webm|ogg|mov)$/i)) {
-                        // Create and append video
-                        const video = document.createElement("video");
-                        video.src = filePath;
-                        video.classList.add("documentationVideo");
-                        video.controls = true; // Enables play, pause, volume controls
-                        documentationContainer.appendChild(video);
-                    }
-                }
-            });
-        
-            // If only the thumbnail exists and no other documents, show the message
-            if (!hasSupportingDocuments) {
-                documentationContainer.innerHTML = "<p><i>No supporting documents for this project</i></p>";
+                visitBtn.addEventListener('click', () => {
+                    window.open(project.link, '_blank');
+                });
             }
-        }
-        
 
-        
-        
-     
-        // ======================================================================
+            const projectNameContent = document.createElement('h1');
+            projectNameContent.classList.add('projectNameContent');
+            projectNameContent.innerHTML = `<h2>${project.name}</h2> <h3>${project.year}</h3>`;
 
+            const projectMaterialContent = document.createElement('ul');
+            projectMaterialContent.classList.add('projectMaterialContent');
+            projectMaterialContent.innerHTML = project.material?.length
+                ? project.material.map(m => `<li>${m}</li>`).join('')
+                : '<li>Not specified</li>';
+
+            projectName.appendChild(projectNameContent);
+            projectMaterial.appendChild(projectMaterialContent);
+            projectInfo.appendChild(projectName);
+            projectInfo.appendChild(projectMaterial);
+            projectInfo.appendChild(projectDetailBtn);
+
+            container.appendChild(projectElement);
+            projectElement.appendChild(projectPictureContainer);
+            projectPictureContainer.appendChild(projectPicture);
+            projectElement.appendChild(projectInfo);
+
+      
+
+
+        });
     } catch (error) {
-        console.error('Error loading project information:', error);
+        console.error('Error fetching project data:', error);
     }
-};
+});
 
-// Call the function to load projects
+function moreInfoPage(){
 
-
-loadProjects();
-loadProjectInfo();
+    
+    
+}
