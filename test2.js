@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             return;
         }
 
+        console.log("testing")
+
         const response = await fetch('projects.json');
         if (!response.ok) throw new Error('Failed to fetch projects.json');
         const data = await response.json();
@@ -69,13 +71,15 @@ document.addEventListener('DOMContentLoaded', async function () {
             return;
         }
 
+
         const projects = data[section];
+        
         const container = document.getElementById('projects-container');
         container.innerHTML = '';
+      
+
 
         Object.keys(projects).forEach(projectKey => {
-            console.log("testing")
-
             const project = projects[projectKey];
 
             const projectElement = document.createElement('div');
@@ -140,9 +144,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             projectElement.appendChild(projectPictureContainer);
             projectPictureContainer.appendChild(projectPicture);
             projectElement.appendChild(projectInfo);
-
-      
-
 
         });
     } catch (error) {

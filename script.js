@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     makeHeader();
     backBtn();
     makeFooter()
@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     contactBtn();
     DateAndTime();
     floorDirectory()
-    
+    hoverIndicator()
+
     const infoContainer = document.querySelector('#project-info-container')
 const testingH1 = document.createElement('h1')
 testingH1.innerHTML = "testing"
@@ -318,5 +319,11 @@ nameBtn.addEventListener('click', () => {
         }
     }
     
-
-
+    function hoverIndicator() {
+        const hoverIndicator = document.querySelector('#hoverIndicator');
+    
+        setTimeout(() => {
+            hoverIndicator.style.display = 'block';
+        }, 3000); // 3000 milliseconds = 3 seconds
+    }
+    

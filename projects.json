@@ -159,5 +159,50 @@
     }
 
 }
+}, 
+"highlight":{ 
+    "Highlight1":{
+        "name":"Odd Fellow Says Hello",
+        "year":"2024",
+        "info":"Put your wits to the test with Odd Fellow Says Hello, a game of wordplay and fun! In each round, you’ll face four words—but one doesn’t belong. Is it a trick of meaning or a subtle twist of context? Gather your friends or challenge yourself to find the Odd Fellow before time runs out. Perfect for quick thinkers, word lovers, and anyone who loves a clever challenge. Are you sharp enough to spot the odd fellow? Odd fellow says hello!",
+        "material":["HTML","CSS","Javascript","Typescript"],
+        "link":"https://odd-one-out-game.deno.dev/",
+        "haveLink": true,
+        "documentation":{
+            "thumbnail":"assets/Documentation/Odd Fellow Says Hello cover.png",
+            "doc1":"assets/Documentation/Process/Odd Fellow Says Hello sketch.jpg",
+            "doc2":"assets/Documentation/Process/Odd fellow says hello sketch + color map.png",
+            "doc3":"assets/Documentation/Process/Odd Fellow Says Hello Flow Chart.png"
+        },
+        "highlight": true
+    },
+    "Highlight2":{
+        "name":"Hue Hunter",
+        "year":"2024",
+        "info":"Sight and hearing exercise game designed specifically with visual designer and/or musician in mind. User's are prompted to find the red square by following the transition of color and pitch. As users level up, the game becomes harder.",
+        "material":["HTML","CSS","Javascript"],
+        "link":" https://carbudar.github.io/hue-hunter/",
+        "haveLink": true,
+        "documentation":{
+            "thumbnail":"assets/Documentation/hue hunter cover.png",
+            "doc1":"assets/Documentation/Process/Hue Hunter sketch.jpg",
+            "doc2":"assets/Documentation/Process/Hue Hunter color sketch.png"
+        }
+    },
+    "Highlight3":{
+        "name":"Photo Archive",
+        "year":"2024",
+        "info":"This website serves as an archival hub for my personal photography portfolio, offering detailed insights into each piece. The collection is presented in an organized grid format, allowing for a visually cohesive and engaging browsing experience.",
+        "material":["HTML","CSS","Javascript"],
+        "link":"https://carbudar.github.io/Photo-Archive/",
+        "haveLink": true,
+        "documentation":{
+            "thumbnail":"assets/Documentation/Photo Archive cover.png",
+            "doc1":"assets/Documentation/Process/Photo Archive main page sketch.png",
+            "doc2":"assets/Documentation/Process/Photo Archive Expanded Sketch.png"
+        }
+        
+    }
+    
 }
 }

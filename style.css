@@ -22,6 +22,11 @@ html, body {
 h1,h2,h3{
     font-weight: 300;
 }
+
+h1{
+    font-size: 3vh;
+}
+
 #nameBtn{
     transition: ease 0.2s;
 }
@@ -54,7 +59,7 @@ h1,h2,h3{
     color: #EDED14;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    z-index: 100;
+    z-index: 90000;
     width: 100vw;
     font-size: 1rem;
 }
@@ -125,10 +130,13 @@ h1,h2,h3{
 }
 
 .about-title {
-    font-size: 2em;
     color: #EDED14;
     height: auto;
     width: auto;
+}
+
+.about-title h1{
+    font-size: 2.5em;
 }
 .blurEffect{
     height: 6vw;
@@ -155,8 +163,6 @@ h1,h2,h3{
     font-size: 1.5em;
 
 }
-
-
 
 .about-content h2,
 .about-content p{
@@ -261,6 +267,15 @@ h1,h2,h3{
     animation-delay: 0s, 1s; /* Delay float so it starts after fallIn is done */
 }
 
+
+#hoverIndicator{
+    display: none;
+    animation: fallIn 1s ease-out forwards, float 3s infinite ease-in-out;
+    z-index: 10;
+    color:#EDED14;
+    text-shadow: 1px 1px 1px rgba(50, 63, 47, 0.3);
+    font-weight: 400;
+}
 /* Add delays for cascading effect */
 .directory > div:nth-child(1) {
     animation-delay: 3s;
@@ -359,8 +374,10 @@ h1,h2,h3{
     white-space: nowrap;
     margin-top: auto;
     margin-bottom: auto;
+    border-radius: 5px;
     z-index: 1000;
-    outline: solid;
+    outline: 1px solid;
+
 
 }
 
@@ -373,6 +390,7 @@ h1,h2,h3{
     height: 100%;
     width: 0;
     transition: width ease 0.7s;
+    border-radius: 5px;
 
 }
 
@@ -486,18 +504,7 @@ h1,h2,h3{
     margin-top: 2vh;
 }
 
-#doorContainer {
-    text-align: center;
-    height: 92vh;
-    width: auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10vw;
-    transition: ease 0.5s;
-    padding-left: 40vw;
-    padding-right: 40vw;
-}
+
 
 .stickyParent{
     scroll-behavior: smooth;
@@ -551,26 +558,7 @@ h1,h2,h3{
     overflow: hidden;
     font-size: 2.7rem;
 }
-.doorImage{
-    width: 20vw;
-    height: auto;
-    transition: ease 0.5s;
-    position: absolute;
- 
 
-}
-
-.eachDoor{
-    transition: ease 0.5s;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    min-width: 20vw;
-    min-height: 80vh;
-    z-index: 51;
-}
 
 .thumbnailContainer{
     position:absolute;
@@ -618,13 +606,6 @@ h1,h2,h3{
     text-align: center;
 } */
 
-.eachDoor.blurred {
-    filter: blur(3px);
-}
-
-.eachDoor.hovered {
-    filter: none;
-}
 
 
 #project-info-container{
@@ -635,13 +616,13 @@ h1,h2,h3{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 7vh;
 }
 
 
-
-
 #content,
-#content-buttons{
+#content-buttons,
+.progress,.reflection{
     display: grid;
     height: auto;
     width: 100%;
@@ -650,33 +631,30 @@ h1,h2,h3{
     margin: 2vh;
     position: relative;
 }
+.progress{
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1;
+}
 
+#content-buttons{
+    height: auto;
 
+}
+.button-center,.button-right{
+    display: flex;
+    justify-content: flex-start;
+}
 
 .content-center,
 .content-left,
-.content-right,
-.progress{
+.content-right,.progressTitle,.progressPhoto,.button-left,.button-center,.button-right{
     padding: 1vh;
     list-style: none;
 }
 
-.documentationContainer{
-    color: #AAA7A2;
-    padding-left: 3vh;
-}
-.progress{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1;
-    width: 100%;
-    height: auto;
-}
-
-.progressPhoto{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1vw;
+.content-center,.content-right{
+    font-size: 1rem;
+    line-height: 200%;
 }
 
 .reflection{
@@ -686,12 +664,16 @@ h1,h2,h3{
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1;
     margin-top: 3vh;
+    gap: 3vw;
     
 
 }
 .progressTitle,
 .reflectionTitle{
     font-size: 2.5rem;
+    padding: 1vh;
+    width: 100%;
+    
 }
 
 .reflectionText{
@@ -699,13 +681,6 @@ h1,h2,h3{
     width: 100%;
 }
 
-
-.documentationImage,
-.documentationVideo{
-    width: 18vw;
-    height: auto;
-    object-fit: contain;
-}
 
 .titleProject{
     z-index: 100;
@@ -872,28 +847,7 @@ h1,h2,h3{
         font-size: 1.3em;
 
     }
-    .sticky {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    #doorContainer {
-        flex-direction: column;
-        height: 100vh; 
-        width: 100vw;
-        overflow-y: auto; 
-        overflow-x: hidden; 
-        align-items: center;
-        top: 8vh;
-    }
-    
-    .eachDoor {
-        min-height: 50vh; /* Make each door smaller */
-    }
+ 
     .thumbnailContainer{
         display: block;
         position: absolute;
@@ -902,10 +856,6 @@ h1,h2,h3{
     .doorImage {
         width: 70vw; /* Adjust image size */
         display: none;
-    }
-
-    #project-info-container{
-        margin-top: 8vh;
     }
 
     .thumbnailContainer{
@@ -971,6 +921,8 @@ h1,h2,h3{
 .projectPicture{
     height: 70%;
     padding: 2vh;
+    border-radius: 30px;
+
 
 }
 .projectName,
@@ -987,6 +939,7 @@ h1,h2,h3{
 .projectDetailBtn{
     display: flex;
     flex-direction: column;
+    z-index: 10;
 }
 
 .projectNameContent{
@@ -1031,4 +984,50 @@ h1,h2,h3{
     height: 60%;
     width: auto;
     border-radius: 15px;
+}
+
+.projectHighlight{
+    height: 100vh;
+    width: 100vw;
+    
+}
+#highlightContainer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10vw;
+    min-height: 100vh;
+    padding: 2vw;
+    gap: 2vw;
+    text-align: center;
+}
+
+
+
+.progressPhoto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.progressPhoto img {
+    height: 30vh;
+    width: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+img{
+    transition: ease 1s;
+}
+img:hover{
+    scale: 1.05;
+    
+}
+
+.content-left,
+.progressTitle,
+.reflectionTitle{
+    width: 30vw;
 }

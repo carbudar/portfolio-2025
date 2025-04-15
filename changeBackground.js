@@ -1,6 +1,6 @@
 window.addEventListener("scroll", changeBackgroundColor);
 function changeBackgroundColor() {
-    console.log("Function is running!");
+    // console.log("Function is running!");
 
     const pageContainer = document.querySelector('.landing-page-container');
     const blurEffect = document.querySelector('.blurEffect')
@@ -11,9 +11,9 @@ function changeBackgroundColor() {
     const docHeight = document.documentElement.scrollHeight; // Total height of the document
     const windowHeight = window.innerHeight; // Height of the viewport
 
-    console.log("Document Height:", docHeight);
-    console.log("Window Height:", windowHeight);
-    console.log("Scroll Top:", scrollTop);
+    // console.log("Document Height:", docHeight);
+    // console.log("Window Height:", windowHeight);
+    // console.log("Scroll Top:", scrollTop);
 
     // Calculate percentage of page scrolled and round it down
     const scrollPercentage = Math.floor((scrollTop / (docHeight - windowHeight)) * 100);
@@ -36,6 +36,6 @@ function changeBackgroundColor() {
     if (scrollPercentage >= 40) {
         blurEffect.style.opacity = "10" , 1000
     }
-    console.log(scrollPercentage)
+    // console.log(scrollPercentage)
 
 }
