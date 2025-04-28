@@ -75,7 +75,8 @@ console.log("script.js functioning")
 
         headerLinkedin.innerHTML = "About"
         headerLinkedin.addEventListener('click',()=>{
-            scrollToAbout();
+            window.location.href = "index.html#aboutMe";
+
         })
 
         
@@ -107,54 +108,55 @@ console.log("script.js functioning")
 
     }
     function makeFooter(){
-        const footerPlaceholder = document.querySelector('.footerPlaceholder')
-    //div container
-        const footerContainer = document.createElement('div')
-        footerContainer.classList.add('footer')
+        const footerPlaceholder = document.querySelector('.footerPlaceholder');
     
-    //left grid
-        const contactTitle = document.createElement('div')
-        const contactTitleH1 = document.createElement('h1')
-        contactTitleH1.innerHTML= "Connect With Me!"
-        contactTitle.classList.add('contact-title')
+        // div container
+        const footerContainer = document.createElement('div');
+        footerContainer.classList.add('footer');
+ 
     
-    //right grid
+        // left grid
+        const contactTitle = document.createElement('div');
+        const contactTitleH1 = document.createElement('h1');
+        contactTitleH1.innerHTML = "Connect With Me!";
+        contactTitle.classList.add('contact-title');
+    
+        // right grid
         const contactInfo = document.createElement('div');
+    
         const contactDetails = [
             { text: "Email: budac616@newschool.edu", link: 'https://mail.google.com/mail/?view=cm&fs=1&to=budac616@newschool.edu'},
             { text: "LinkedIn: Carla Budar", link: "https://www.linkedin.com/in/carlabudar" },
             { text: "Instagram: @carbudar", link: "https://www.instagram.com/carbudar" }
         ];
-
+    
         // Create and append h2 elements with links dynamically
         contactDetails.forEach(detail => {
             const h2 = document.createElement('h2');
-            
+    
             const a = document.createElement('a');
             a.href = detail.link;
             a.innerHTML = detail.text;
-            a.target = "_blank"; 
+            a.target = "_blank"; // Opens the link in a new tab
     
             // Append the anchor to h2
             h2.appendChild(a);
-            
+    
             // Append the h2 to contactInfo
             contactInfo.appendChild(h2);
         });
     
         contactInfo.classList.add('contact-info');
     
-    //fine print
-    const fineprint = document.createElement('div')
-    fineprint.innerHTML = '<p>&copy; 2025 Carla Budar. All rights reserved. Designed and developed with 🤎 somewhere in New York City.</p>'
-    fineprint.classList.add('fineprint')
+        // fine print
+        const fineprint = document.createElement('div');
+        fineprint.innerHTML = '<p>&copy; 2025 Carla Budar. All rights reserved. Designed and developed with 🤎 somewhere in New York City.</p>';
+        fineprint.classList.add('fineprint');
     
-        contactTitle.appendChild(contactTitleH1)
+        contactTitle.appendChild(contactTitleH1);
         footerContainer.appendChild(contactTitle);
         footerContainer.appendChild(contactInfo);
         footerContainer.appendChild(fineprint);
-    
-    
     
         footerPlaceholder.appendChild(footerContainer);
     }
@@ -215,7 +217,7 @@ nameBtn.addEventListener('click', () => {
 
      
     }
-    contactBtn()
+
     function floorDirectory(){ //directory button
         const floors = document.querySelectorAll('.directory > div[id^="dirContainer"]');
         // Iterate over each container
@@ -327,3 +329,5 @@ nameBtn.addEventListener('click', () => {
         }, 3000); // 3000 milliseconds = 3 seconds
     }
     
+
+

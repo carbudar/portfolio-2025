@@ -10,6 +10,7 @@ function createButton(size, buttonText, className, highlightColor, color, parent
     const buttonTitle = document.createElement(size);
     buttonTitle.innerHTML = buttonText;
 
+    buttonContent.style.padding="1vw"
     buttonContent.appendChild(buttonTitle);
     buttonContent.classList.add('buttonContent');
 
@@ -81,12 +82,12 @@ document.addEventListener('DOMContentLoaded', async function () {
             contentBackToTop.addEventListener('click',()=>{
                 top=0
             })
-            createButton("h3", "Back To Top", "content-backToTop", "#EDED14", "#000");
+            createButton("h3", "Back To Top", "content-backToTop", "#EDED14", "#126889");
 
 
             if(project.link){
                 const visitSite = document.querySelector('.visitSite')
-                createButton("h3", "Visit Site", "visitSite", "#EDED14", "#000");
+                createButton("h3", "Visit Site", "visitSite", "#EDED14", "#126889");
 
                 visitSite.addEventListener('click',()=>{
                     window.open(project.link);

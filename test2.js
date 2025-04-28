@@ -12,6 +12,7 @@ function createButton(size, buttonText, className, highlightColor, color, parent
 
     buttonContent.appendChild(buttonTitle);
     buttonContent.classList.add('buttonContent');
+    buttonContent.style.padding = "1vh"
 
     button.appendChild(buttonExpand);
     button.appendChild(buttonContent);
@@ -43,11 +44,11 @@ function createButton(size, buttonText, className, highlightColor, color, parent
     }
 }
 
-createButton("h1", "Back to Top", "backToTop", "#EDED14", "#000");
+createButton("h1", "Back to Top", "backToTop", "#FFD2FF", "#FFD2FF");
 createButton("h2", "Email", "email", "#EDED14", "#000");
 createButton("h2", "LinkedIn", "linkedin", "#EDED14", "#000");
 createButton("h2", "Instagram", "instagram", "#EDED14", "#000");
-createButton("h3", "Back", "backBtn", "#EDED14", "#000");
+createButton("h3", "Back", "backBtn", "#EDED14", "#126889");
 
 // Fetch project data and dynamically create elements
 document.addEventListener('DOMContentLoaded', async function () {
@@ -85,6 +86,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             const projectElement = document.createElement('div');
             projectElement.classList.add('projectElement');
 
+            
+
             const projectPictureContainer = document.createElement('div');
             projectPictureContainer.classList.add('projectPictureContainer');
             const projectPicture = document.createElement('img');
@@ -107,7 +110,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             moreInfoBtn.classList.add('moreInfoBtn');
             projectDetailBtn.appendChild(moreInfoBtn);
 
-            createButton("h3", "More Info", "moreInfoBtn", "#EDED14", "#000", moreInfoBtn);
+            createButton("h3", "More Info", "moreInfoBtn", "#EDED14", "#126889", moreInfoBtn);
 
             moreInfoBtn.addEventListener('click', () => {
                 window.location.href = `project-info.html?project=${projectKey}`;
@@ -117,7 +120,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const visitBtn = document.createElement('div');
                 visitBtn.classList.add('visitBtn');
                 projectDetailBtn.appendChild(visitBtn);
-                createButton("h3", "Visit Site", "visitBtn", "#EDED14", "#000", visitBtn);
+                createButton("h3", "Visit Site", "visitBtn", "#EDED14", "#126889", visitBtn);
 
                 visitBtn.addEventListener('click', () => {
                     window.open(project.link, '_blank');

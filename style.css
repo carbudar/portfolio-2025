@@ -8,6 +8,17 @@
     transition: background-color 0.5s ease;
 
 }
+.trail {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: fade-out 4s forwards;
+}
+@keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
 
 ::-webkit-scrollbar {
     display: none;
@@ -37,21 +48,23 @@ h1{
 
 .landing-page-container{
     width: 100vw;
-    position: absolute;
     min-height: 100vh;
+    position: relative;
 }
 .page-container{
     height: auto;
     width: 100vw;
     position: absolute;
     transition: background-color 0.5s ease;
-    background-color: #126889;
+    background-color: #F9F7F2;
+    z-index: 10;
 }
 
 .headerPlaceHolder{
     position: sticky;
     top: 0;
-    z-index: 105;
+    z-index: 1000;
+
 }
 .header{
     height: 8vh;
@@ -59,7 +72,7 @@ h1{
     color: #EDED14;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    z-index: 90000;
+    z-index: 1000;
     width: 100vw;
     font-size: 1rem;
 }
@@ -121,12 +134,15 @@ h1{
 
 .aboutMe{
     height: auto;
+    z-index: 100;
 }
 .about-container{
     padding: 4vw;
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    /* background-color: #323F2F; */
+    color: #AAA7A2;
+    line-height: 2em;
+    font-size: 1.5em;
 }
 
 .about-title {
@@ -147,21 +163,13 @@ h1{
     opacity: 0;
     filter: blur(1rem);
     background-color: #126889;
+    
 }
-
 
 .about-title h1{
     position: sticky;
     top: 8vw; 
     left: 4vw;
-}
-
-
-.about-content{
-    color: #AAA7A2;
-    line-height: 2em;
-    font-size: 1.5em;
-
 }
 
 .about-content h2,
@@ -191,6 +199,7 @@ h1{
 
 #profilePic{
     width: 40%;
+    border-radius: 15px;
 }
 /* // */
 
@@ -410,6 +419,8 @@ h1{
     place-self: center;
     margin-bottom: 5vh;
     z-index: 10;
+    color: #EDED14;
+
 }
 
 
@@ -436,23 +447,22 @@ h1{
     width: 10vw;
 }
 
-
-
 .footer{
     height:auto;
     width: 100vw;
     background-color: #AAA7A2;
-    position: relative;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     box-sizing: border-box;
-    position: relative;
+    position:static;
     padding-top: 4vw;
     padding-right: 4vw;
     padding-left: 4vw;
     padding-bottom:5vw;
     gap: 10px;
-    position: relative;    
+    bottom: 0;
+    z-index: 105;
+
 }
 .contact-title h1{
     font-size: 4rem;
@@ -469,9 +479,11 @@ h1{
     color: #F9F7F2; 
 }
 
+
 .contact-info a:hover {
     color: #EDED14;
 }
+
 
 .fineprint{
     position: absolute;
@@ -502,6 +514,7 @@ h1{
     z-index: 1000;
     margin-left: 4vw;
     margin-top: 2vh;
+    color: #126889;
 }
 
 
@@ -638,11 +651,13 @@ h1{
 
 #content-buttons{
     height: auto;
-
 }
-.button-center,.button-right{
+
+.button-center,.button-right, .button-left{
     display: flex;
     justify-content: flex-start;
+    width: 30vw;
+    color: #126889;
 }
 
 .content-center,
@@ -664,8 +679,7 @@ h1{
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1;
     margin-top: 3vh;
-    gap: 3vw;
-    
+    gap: 3vw;    
 
 }
 .progressTitle,
@@ -824,12 +838,6 @@ h1{
         place-self: end;
     }
 
-    .footer {
-        position: relative;
-        width: 100%;
-        display: none;
-
-    }
     .page-container{
        min-height: auto;
         position: absolute
@@ -871,6 +879,7 @@ h1{
        padding-bottom: 17vh;
     }
     
+    
     .thumbnailPic {
         width: 60vw; /* Make thumbnails larger */
         max-height: 20vh; /* Keep them balanced */
@@ -882,6 +891,7 @@ h1{
   }
 
   #projects-container{
+    background-color: #F9F7F2;
     min-height: 92vh;
     height: auto;
     display: flex;
@@ -889,8 +899,20 @@ h1{
     gap: 4vh;
     align-items: center;
     padding: 2vh;
-
+    transition: ease;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
   }
+
+  #projects-container {
+  
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
 
   .projectElement{
     margin-top: 3vh;
@@ -903,6 +925,8 @@ h1{
     justify-content: center;
     border-radius: 30px;
 }
+
+
 
 .projectPictureContainer{
     height: 50vh;
@@ -928,24 +952,34 @@ h1{
 .projectName,
 .projectMaterial,
 .projectDetailBtn{
+    color: #323F2F;
     height: 50vh;
     width: 20vw;
     padding: 2vh;
     padding-top: 6vh;
+   
 }
-
 
 
 .projectDetailBtn{
     display: flex;
     flex-direction: column;
     z-index: 10;
+    color: #126889;
+
 }
+
 
 .projectNameContent{
     font-size: 1rem;
+    line-height: 5vh;
+    font-weight: bold;
+
 }
 
+.projectNameContent h3{
+    color:#126889 ;
+}
 .projectMaterialContent{
     list-style: none;
     line-height: 200%;
@@ -1030,4 +1064,6 @@ img:hover{
 .progressTitle,
 .reflectionTitle{
     width: 30vw;
+    color: #126889;
 }
+
