@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         container.innerHTML = '';
       
 
+        const backgroundImageContainer = document.querySelector('.page-container');
 
         Object.keys(projects).forEach(projectKey => {
             const project = projects[projectKey];
@@ -86,6 +87,19 @@ document.addEventListener('DOMContentLoaded', async function () {
             const projectElement = document.createElement('div');
             projectElement.classList.add('projectElement');
 
+            projectElement.addEventListener('mouseenter', () => {
+                // backgroundImageContainer.style.backgroundImage = `url(${project.documentation.thumbnail})`;
+                // backgroundImageContainer.style.backgroundColor = "#323F2F";
+                document.body.style.backgroundImage = "url('Big CIty Small World cover.png')";
+
+                console.log(`url(${project.documentation.thumbnail})`)
+            });
+            
+            projectElement.addEventListener('mouseleave', () => {
+                console.log("mouse out")
+                backgroundImageContainer.style.backgroundImage = "none"
+                backgroundImageContainer.style.backgroundColor = "#F9F7F2";
+            });
             
 
             const projectPictureContainer = document.createElement('div');
