@@ -62,7 +62,7 @@ h1{
 }
 
 .headerPlaceHolder{
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
 
@@ -108,7 +108,7 @@ h1{
 /* --- */
 
 .main-container{
-    height:92vh;
+    height:100vh;
     width: 100vw;
     position: relative;
     padding: 4vw;
@@ -130,6 +130,10 @@ h1{
     height:auto;
 }
 
+.hello-text{
+    margin-top: 5vh;
+
+}
 
 /* about me */
 
@@ -657,6 +661,7 @@ h1{
 .progress{
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1;
+    height: fit-content;
 }
 
 #content-buttons{
@@ -776,13 +781,6 @@ h1{
         opacity: 1;  /* Back to fully visible */
     }
 }
-.documentationImage {
-    transition: transform 0.3s ease; /* Smooth transition for scaling */
-}
-
-.documentationImage:hover {
-    transform: scale(1.1); /* Scales up the image to 110% of its size */
-}
 
 
 .imageShake{
@@ -848,6 +846,18 @@ h1{
         place-self: end;
     }
 
+    .intro-contact{
+        display: flex;
+        max-width: 30vw;
+        gap: 3vw;
+        z-index: 10;
+    }
+
+    .intro-contact > *{
+        
+    }
+
+
     .page-container{
        min-height: auto;
         position: absolute
@@ -910,7 +920,7 @@ h1{
     padding: 2vh;
     transition: ease;
     opacity: 0;
-    animation: fadeIn 1s ease forwards;
+    animation: fadeIn 1s ease forwards;position: relative;
   }
 
   #projects-container {
@@ -1043,30 +1053,34 @@ h1{
     text-align: center;
 }
 
+.documentationElement{
+    background-color: yellowgreen;
+    max-height: 30vh;
+    width: auto;
+    border-radius: 15px;
+    object-fit: cover;
 
-
+}
 .progressPhoto {
     display: flex;
     flex-wrap: wrap;
     gap: 1vw;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 100%;
+
 }
 
-.progressPhoto img {
-    height: 30vh;
-    width: auto;
-    border-radius: 8px;
-    object-fit: cover;
+img.progressPhoto,
+video.progressPhoto {
+    transition: transform 1s ease;
 }
-img{
-    transition: ease 1s;
+
+img.progressPhoto:hover,
+video.progressPhoto:hover {
+    transform: scale(1.05);
 }
-img:hover{
-    scale: 1.05;
-    
-}
+
+
 
 .content-left,
 .progressTitle,

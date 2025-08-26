@@ -93,10 +93,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                     window.open(project.link);
                 })
             }
-           
-            
-            
-
+      
             const projectDocumentation = document.querySelector('.progressPhoto');
 
             // Clear any existing content first
@@ -106,16 +103,32 @@ document.addEventListener('DOMContentLoaded', async function () {
             Object.entries(project.documentation).forEach(([key, value]) => {
                 // Skip thumbnail since it's used elsewhere
                 if (key !== "thumbnail" && value) {
-                    const img = document.createElement("img");
-                    img.src = value;
-                    img.alt = `${project.name} - ${key}`;
-                    img.classList.add("documentation-image"); // Optional: for styling
-                    projectDocumentation.appendChild(img);
+                    const fileExtension = value.split('.').pop().toLowerCase();
+                    let mediaElement;
+
+                    // Check for common video file extensions
+                    if (["mp4", "mov", "webm", "ogg"].includes(fileExtension)) {
+                        mediaElement = document.createElement("video");
+                        mediaElement.src = value;
+                        mediaElement.controls = true;
+                        mediaElement.autoplay = true;
+                        mediaElement.loop = true;
+                        mediaElement.muted = true;
+                        mediaElement.classList.add("documentationElement"); // Optional: for styling
+                    }
+                    // Treat everything else as an image
+                    else if (["jpg", "jpeg", "png", "gif", "bmp", "svg", "webp", "heic", "avif"].includes(fileExtension)) {
+                        mediaElement = document.createElement("img");
+                        mediaElement.src = value;
+                        mediaElement.alt = `${project.name} - ${key}`;
+                        mediaElement.classList.add("documentationElement"); // Optional: for styling
+                    }
+
+                    if (mediaElement) {
+                        projectDocumentation.appendChild(mediaElement);
+                    }
                 }
             });
-
-            
-
 
             
         } else {
