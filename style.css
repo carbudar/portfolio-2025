@@ -54,7 +54,6 @@ h1{
 .page-container{
     height: auto;
     width: 100vw;
-    position: absolute;
     transition: background-color 0.5s ease;
     z-index: 10;
     background-color: #F9F7F2;
@@ -393,16 +392,23 @@ h1{
     align-items: center;
     width: fit-content;  
     height: fit-content;
-    position: relative;
     white-space: nowrap;
     margin-top: auto;
     margin-bottom: auto;
     border-radius: 5px;
     z-index: 1000;
-    outline: 1px solid;
-
-
+    outline: 0.7px solid;
 }
+
+.buttonContent{
+    position:relative;
+    height: inherit;
+    width: inherit;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    z-index: 10;
+}
+
 
 .button h3{
     font-size: 1.3rem;
@@ -417,14 +423,7 @@ h1{
 
 }
 
-.buttonContent{
-    position:relative;
-    height: inherit;
-    width: inherit;
-    padding-left: 1vh;
-    padding-right: 1vh;
-    z-index: 10;
-}
+
 
 
 
@@ -468,16 +467,18 @@ h1{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     box-sizing: border-box;
-    position:static;
-    padding-top: 4vw;
-    padding-right: 4vw;
-    padding-left: 4vw;
-    padding-bottom:5vw;
+    position:relative;
+    padding: 4vw;
     gap: 10px;
     bottom: 0;
     z-index: 105;
 
 }
+.contact-title,
+.contact-info{
+    height: 90%;
+}
+
 .contact-title h1{
     font-size: 4rem;
     color:#FFD2FF;
@@ -486,7 +487,6 @@ h1{
     margin-bottom: 2vh;
     font-size: 1.5rem;
 }
-
 
 .contact-info a {
     text-decoration: none;
@@ -500,6 +500,9 @@ h1{
 
 
 .fineprint{
+    text-align: end;
+    right: 0;
+    text-wrap: none;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -515,10 +518,6 @@ h1{
 
 }
 
-.contact-info{
-    margin-bottom: 2vh;
-}
-
 .contact-info .link a:hover {
     color: #EDED14; 
 }
@@ -526,14 +525,13 @@ h1{
 .backBtn {
     position: fixed;
     z-index: 1000;
-    margin-left: 4vw;
-    margin-top: 2vh;
+    top: 10vh;
+    left: 5vw;
     color: #126889;
 }
 
 
-
-.stickyParent{
+/* .stickyParent{
     scroll-behavior: smooth;
     
 }
@@ -552,7 +550,7 @@ h1{
     display: flex; 
     width: max-content;
     will-change: transform;
-}
+} */
 
 /* .headerTest{
     height: 8vh;
@@ -561,13 +559,13 @@ h1{
 
 } */
 
-.scrollNotice{
+/* .scrollNotice{
     position: absolute;
     z-index: 100;
    bottom: 40vh;
    left:3vw;
    font-style: italic;
-}
+} */
 
 
 .project {
@@ -638,12 +636,15 @@ h1{
 #project-info-container{
     min-height: 92vh;
     box-sizing: border-box;
+    top: 8vh;
+    position: relative;
     padding: 5vw;
     background-color: #F9F7F2;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 7vh;
+    
 }
 
 
@@ -813,7 +814,7 @@ h1{
 
   }
 
-  @media (max-width: 768px){
+  /* @media (max-width: 768px){
     body{
         width: 100vw;
     }
@@ -853,15 +854,9 @@ h1{
         z-index: 10;
     }
 
-    .intro-contact > *{
-        
-    }
-
 
     .page-container{
        min-height: auto;
-        position: absolute
-
     }
     .fineprint{
         text-align: end;
@@ -882,7 +877,7 @@ h1{
         padding-top: 10vh;
     }
     .doorImage {
-        width: 70vw; /* Adjust image size */
+        width: 70vw;
         display: none;
     }
 
@@ -901,31 +896,28 @@ h1{
     
     
     .thumbnailPic {
-        width: 60vw; /* Make thumbnails larger */
-        max-height: 20vh; /* Keep them balanced */
+        width: 60vw; 
+        max-height: 20vh;
     }
     
     .projectDiv {
-        margin-top: 5vh !important; /* Override JS styling */
+        margin-top: 5vh !important;
     }
-  }
+  } */
 
   #projects-container{
-    min-height: 92vh;
+    min-height: 100vh;
     height: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 4vh;
     align-items: center;
-    padding: 2vh;
     transition: ease;
-    opacity: 0;
     animation: fadeIn 1s ease forwards;position: relative;
+    padding: 5vh;
+    padding-top: 14vh;
   }
-
-  #projects-container {
-  
-}
 
 @keyframes fadeIn {
     to {
@@ -938,7 +930,7 @@ h1{
     background-color:#FFD2FF;
     min-height: 50vh;
     height: auto;
-    width: 100%;
+    width: 90vw;
     display: flex;
     align-items: center;
     justify-content: center;
