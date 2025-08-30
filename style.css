@@ -344,19 +344,15 @@ h1{
     align-items: flex-end;
     justify-content: flex-end;
     flex-direction: column;
-    color: #AAA7A2;
 }
 
 .intro-text h2{
-    color:#126889
+    color:#126889;
+    margin-bottom: 3vh;
+    font-size: 1.5rem;
 }
 .intro-text h1{
     margin-bottom: 5vh;
-}
-
-.intro-text h2{
-    margin-bottom: 3vh;
-    font-size: 1.5rem;
 }
 
 #intro-contact{
@@ -994,32 +990,111 @@ video.progressPhoto:hover {
 
 
 /* phone */
-  @media (max-width: 430){
+@media (max-width: 768px) {
      html, body {
         width: 100vw;
-    }
-    h1{
-        font-size: 0.5rem;
+        overflow-x: hidden;
     }
 
     .header{
-        font-size: 0.5rem;
         width: 100vw;
         position: fixed;
         z-index: 100;
     }
+    .header-center{
+        visibility: hidden;
+    }
 
+    .header-left {
+        font-size: 0;
+    }
+      
+    .header-left::after {
+        content: "Carla Budar";
+        font-size: 16px;
+        display: block; 
+        text-align: left;
+        white-space: nowrap;
+ 
+    }
+
+    .headerButton h3,
+    .header-left::after {
+        font-size: 1rem;
+    }
+  
+    
     .main-container{
-        background-color: #323F2F;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3,1fr);
         margin-top: 8vh;
+        width: 100vw;
+        padding: 0;
+        height: 92vh;
     }
 
     .hello-text{
-        background-color: #323F2F;
+        position: relative;
+        height: 20vh;
+        width: 100%;
+        margin-top: 0;
+        padding: 3vw;
+        padding-top: 3vh;
+    }
+
+    #dynamic-time{
+        font-size: 60%;
+        margin-bottom: 1vh;
+    }
+    .hello-text h1{
+        font-size:1.6rem; 
+        line-height: 1.5;
+        width: 90%;
+    }
+
+    .directory{
+        margin-top: 5vh;
+    }
+
+    #hoverIndicator{
+        font-size: 0;
+    }
+    #hoverIndicator::after{
+        content: "Click Me!";
+        font-size: 1.5rem;
+        display: block; 
+        white-space: nowrap;
+    }
+
+
+
+    .intro-text{
+        height: 15vh;
+        align-self: end;
+        padding: 3vw;
+        width: 100vw;
+        box-sizing: border-box;
+    }
+
+
+    .intro-text h2{
+        font-size: 1.3rem;
+        margin-bottom: 2vh;
+    }
+
+    #intro-contact{
+        width: 100%;    
+        justify-content: end;
+        height: 10vh;
+    }
+
+    #intro-contact h2{
+        font-size: 1rem;
     }
 }
+
+
+
     /*
    
 
