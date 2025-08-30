@@ -864,9 +864,8 @@ h1{
     max-width: 80%;
     padding: 2vh;
     border-radius: 30px;
-
-
 }
+
 .projectName,
 .projectMaterial,
 .projectDetailBtn{
@@ -875,7 +874,6 @@ h1{
     width: 20vw;
     padding: 2vh;
     padding-top: 6vh;
-   
 }
 
 
@@ -884,7 +882,6 @@ h1{
     flex-direction: column;
     z-index: 10;
     color: #126889;
-
 }
 
 
@@ -892,7 +889,6 @@ h1{
     font-size: 1rem;
     line-height: 5vh;
     font-weight: bold;
-
 }
 
 .projectNameContent h3{
@@ -1051,6 +1047,10 @@ video.progressPhoto:hover {
         width: 90%;
     }
 
+    .nameGif{
+        width: 30vw;
+    
+      }
     .directory{
         margin-top: 5vh;
     }
@@ -1147,7 +1147,7 @@ video.progressPhoto:hover {
 
     .footer{
         width: 100vw;
-        height: 25vh;
+        height: 20vh;
     }
 
     .contact-title{
@@ -1172,7 +1172,102 @@ video.progressPhoto:hover {
     .fineprint p{
         font-size: 0.55rem;
     }
+
+    
+    #projects-container{
+        width: 100vw;
+        overflow-x: hidden;
+        gap:0vh;
+    }
+
+
+    .projectElement{
+        margin-top: 3vh;
+        min-height: 20vh;
+        border-radius: 15px;
+    }
+    
+    .projectInfo,
+    .projectPictureContainer{
+        height: 20vh;
+    }
+    .projectPictureContainer{
+        width: 60%;
+    }
+
+    .projectPicture{
+        border-radius: 10px;
+        max-height: 70%;
+        max-width: 95%;
+        padding: 0;
+    }
+
+   
+
+    .projectInfo{
+        flex-direction: column;
+        width: 40%;
+        gap: 0vh;
+        margin: 0vh;
+        gap: 0;
+
+    }
+
+    .projectDetailBtn{
+        height: 20%;
+        margin: 0vh;
+        height: fit-content;
+        padding: 0vh;
+        gap: 0vh;
+        border: 0vh;
+    }
+
+
+    .moreInfoBtn{
+        margin-left: 1vh;
+        margin-bottom: 1vw;
+
+    }
+
+    .visitBtn{
+        margin-left: 1vh;
+
+    }
+
+    .projectName,
+    .projectDetailBtn{
+        width: 100%;
+        padding: 1vh;
+        height: fit-content;
+    }
+
+    .projectDetailBtn{
+        padding: 0vh;
+        height: auto;
+
+    }
+   
+
+    .projectDetailBtn h3{
+        font-size: 0.6rem;
+    }
+    
+
+
+    .projectName h1{
+        font-size: 0.9rem;
+        line-height: 3vh;
+    }
+
+    .projectMaterial{
+        display: none;
+    }
+
+ 
+ 
+    
 }
+
 
 
 
