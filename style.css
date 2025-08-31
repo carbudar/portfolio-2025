@@ -644,6 +644,7 @@ h1{
 }
 
 
+
 #content,
 #content-buttons,
 .progress,.reflection{
@@ -949,7 +950,6 @@ h1{
 }
 
 .documentationElement{
-    background-color: yellowgreen;
     max-height: 30vh;
     width: auto;
     border-radius: 15px;
@@ -1018,6 +1018,9 @@ video.progressPhoto:hover {
         font-size: 1rem;
     }
   
+
+   
+
     
     .main-container{
         grid-template-columns: 1fr;
@@ -1145,11 +1148,6 @@ video.progressPhoto:hover {
         
     }
 
-    .footer{
-        width: 100vw;
-        height: 20vh;
-    }
-
     .contact-title{
         width: 30vw;
     }
@@ -1173,12 +1171,34 @@ video.progressPhoto:hover {
         font-size: 0.55rem;
     }
 
+
+    .page-container{
+        display: flex;
+        flex-direction: column;
+     }
+
     
-    #projects-container{
-        width: 100vw;
-        overflow-x: hidden;
+    #projects-container,
+    #project-info-container{
+        overflow-x:hidden;
+        width: 100vw;    
         gap:0vh;
     }
+
+
+
+
+.footer{
+    width: 100vw;
+    height: 20vh;
+    position: relative;
+}
+
+#content-buttons{
+    margin-bottom: 10vh;
+}
+
+
 
 
     .projectElement{
@@ -1264,9 +1284,98 @@ video.progressPhoto:hover {
     }
 
  
+    #projectPhotoBanner{
+        margin-top: 8vh;
+        height: 30vh;
+    }
  
+    .projectThumbnail{
+        max-height: 80%;
+        max-width: 80%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .content-center{
+        width: 60vw;
+    }
+
+    #content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto; 
+        grid-template-areas:
+            "left center"
+            "right center"; 
+        gap: 20px;
+    }
+
+    .content-left{
+        height: fit-content;
+    }
     
+    .content-left h2 {
+        white-space: normal; 
+        overflow-wrap: break-word; 
+        word-wrap: break-word;
+        font-size: 1.8rem;
+    }
+
+    .content-left h3{
+        font-size: 1.5rem;
+    }
+
+    .content-right{
+       align-self: start;
+       position:inherit;
+       
+    }
+    .content-left {
+        grid-area: left;
+    }
+
+    .content-right {
+        grid-area: right;
+    }
+
+    .content-center {
+        grid-area: center;
+    }
+    
+    .documentationElement{
+        max-height: 20vh;
+        max-width: 25vw;
+        border-radius: 5px;
+        object-fit: cover;
+    
+    }
+
+
+    #project-info-container h1{
+        font-size: 1.5rem;
+    }
+
+
+    
+    #content,
+    .progress,
+    .reflection{
+        gap: 1vw;
+    }
+
+
+#project-info-container{
+    position: relative;
 }
+
+    .reflection{
+        height: 20vh;
+    }
+
+    
+
+}
+
 
 
 
