@@ -1372,6 +1372,12 @@ video.progressPhoto:hover {
         height: 20vh;
     }
 
+    .about-title h1{
+        position: sticky;
+        top: 10vh; 
+        left: 4vw;
+    }
+
     
 
 }
